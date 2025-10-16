@@ -2,18 +2,18 @@ package ro.alexmamo.roomjetpackcompose.utils
 
 import android.content.Context
 import ro.alexmamo.roomjetpackcompose.R
-import ro.alexmamo.roomjetpackcompose.domain.model.Book
+import ro.alexmamo.roomjetpackcompose.domain.model.Todo
 
-fun getBookTest(context: Context): Book {
-    return Book(
+fun getTodoTest(context: Context): Todo {
+    return Todo(
         id = 1,
-        title = context.getString(R.string.title_test),
-        author = context.getString(R.string.author_test)
+        name = context.getString(R.string.name_test),
+        description = context.getString(R.string.description_test)
     )
 }
 
-fun getUpdatedBookTest(context: Context): Book {
-    return getBookTest(context).copy(
-        title = context.getString(R.string.new_title_test)
+fun getUpdatedTodoTest(context: Context): Todo {
+    return getTodoTest(context).copy(
+        name = context.getString(R.string.new_name_test)
     )
 }

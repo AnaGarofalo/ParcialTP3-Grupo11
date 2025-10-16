@@ -7,10 +7,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
-import ro.alexmamo.roomjetpackcompose.data.network.BookDb
-import ro.alexmamo.roomjetpackcompose.domain.repository.BookRepository
-import ro.alexmamo.roomjetpackcompose.presentation.book_list.BookListViewModel
-import ro.alexmamo.roomjetpackcompose.data.repository.FakeBookRepositoryImpl
+import ro.alexmamo.roomjetpackcompose.data.network.TodoDb
+import ro.alexmamo.roomjetpackcompose.presentation.todo_list.TodoListViewModel
+import ro.alexmamo.roomjetpackcompose.data.repository.FakeTodoRepositoryImpl
+import ro.alexmamo.roomjetpackcompose.domain.repository.TodoRepository
 
 @Module
 @TestInstallIn(
@@ -19,21 +19,21 @@ import ro.alexmamo.roomjetpackcompose.data.repository.FakeBookRepositoryImpl
 )
 class AppModuleTest {
     @Provides
-    fun provideBookDb() = Room.inMemoryDatabaseBuilder(
+    fun provideTodoDb() = Room.inMemoryDatabaseBuilder(
         ApplicationProvider.getApplicationContext<Context>(),
-        BookDb::class.java
+        TodoDb::class.java
     ).build()
 
     @Provides
-    fun provideBookDao(
-        bookDb: BookDb
-    ) = bookDb.bookDao
+    fun provideTodoDao(
+        todoDb: TodoDb
+    ) = todoDb.todoDao
 
     @Provides
-    fun provideBookRepository(): BookRepository = FakeBookRepositoryImpl()
+    fun provideTodoRepository(): TodoRepository = FakeTodoRepositoryImpl()
 
     @Provides
-    fun provideBookListViewModel(
-        repo: BookRepository
-    ) = BookListViewModel(repo)
+    fun provideTodoListViewModel(
+        repo: TodoRepository
+    ) = TodoListViewModel(repo)
 }

@@ -1,20 +1,21 @@
 package ro.alexmamo.roomjetpackcompose.navigation
 
 import kotlinx.serialization.Serializable
-import ro.alexmamo.roomjetpackcompose.domain.model.Book
+import ro.alexmamo.roomjetpackcompose.domain.model.Todo
+
 
 @Serializable
-object BookListScreen
+object TodoListScreen
 
 @Serializable
-data class BookDetails(
+data class TodoDetails(
     val id: Int,
-    val title: String,
-    val author: String
+    val name: String,
+    val description: String
 )
 
-fun BookDetails.toBook() = Book(
+fun TodoDetails.toTodo() = Todo(
     id = this.id,
-    title = this.title,
-    author = this.author
+    name = this.name,
+    description = this.description
 )

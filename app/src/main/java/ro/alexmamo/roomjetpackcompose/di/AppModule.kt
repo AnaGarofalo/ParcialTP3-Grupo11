@@ -8,33 +8,35 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ro.alexmamo.roomjetpackcompose.R
-import ro.alexmamo.roomjetpackcompose.data.dao.BookDao
-import ro.alexmamo.roomjetpackcompose.data.network.BookDb
-import ro.alexmamo.roomjetpackcompose.data.repository.BookRepositoryImpl
-import ro.alexmamo.roomjetpackcompose.domain.repository.BookRepository
+import ro.alexmamo.roomjetpackcompose.data.dao.TodoDao
+import ro.alexmamo.roomjetpackcompose.data.network.TodoDb
+import ro.alexmamo.roomjetpackcompose.data.repository.TodoRepositoryImpl
+import ro.alexmamo.roomjetpackcompose.domain.model.Todo
+import ro.alexmamo.roomjetpackcompose.domain.repository.TodoRepository
 
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
     @Provides
-    fun provideBookDb(
+    fun provideTodoDb(
         @ApplicationContext
         context: Context
     ) = Room.databaseBuilder(
         context,
-        BookDb::class.java,
+        TodoDb::class.java,
         context.resources.getString(R.string.db_name)
-    ).build()
+    ).fallbackToDestructiveMigration().build()
+
 
     @Provides
-    fun provideBookDao(
-        bookDb: BookDb
-    ) = bookDb.bookDao
+    fun provideTodoDao(
+        todoDb: TodoDb
+    ) = todoDb.todoDao
 
     @Provides
-    fun provideBookRepository(
-        bookDao: BookDao
-    ): BookRepository = BookRepositoryImpl(
-        bookDao = bookDao
+    fun provideTodoRepository(
+        todoDao: TodoDao
+    ): TodoRepository = TodoRepositoryImpl(
+        todoDao = todoDao
     )
 }

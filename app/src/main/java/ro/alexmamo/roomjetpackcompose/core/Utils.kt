@@ -9,9 +9,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 const val TAG = "AppTag"
-const val BOOK_TABLE = "book_table"
-const val AUTHOR_FIELD = "author"
-const val TITLE_FIELD = "title"
+
+//const val TAG = "AppTag"
+const val TODO_TABLE = "todo_table"
+const val NAME_FIELD = "name"
+const val DESCRIPTION_FIELD = "description"
 
 fun logMessage(
     message: String

@@ -1,13 +1,13 @@
 <resources>
     <!--App-->
     <string name="app_name">RoomJetpackCompose</string>
-    <string name="db_name">books_db</string>
-    <!--Screen Titles-->
-    <string name="book_list_screen_title">"Book List"</string>
-    <string name="book_details_screen_title">"Book Details"</string>
+    <string name="db_name">todos_db</string>
+    <!--Screen Names-->
+    <string name="todo_list_screen_name">"Todo List"</string>
+    <string name="todo_details_screen_name">"Todo Details"</string>
     <!--Texts-->
-    <string name="empty_book_list_text">"The book list is empty."</string>
-    <string name="insert_book">"Insert book"</string>
+    <string name="empty_todo_list_text">"The todo list is empty."</string>
+    <string name="insert_todo">"Insert todo"</string>
     <!--Buttons-->
     <string name="insert_button">"Insert"</string>
     <string name="update_button">"Update"</string>
@@ -16,17 +16,17 @@
     <string name="edit_icon">"Edit"</string>
     <string name="delete_icon">Delete</string>
     <!--Content Descriptions-->
-    <string name="open_insert_book_dialog">"Open insert book dialog."</string>
+    <string name="open_insert_todo_dialog">"Open insert todo dialog."</string>
     <string name="navigate_back">Navigate back</string>
     <!--Placeholders-->
-    <string name="book_title">"Type a book title…"</string>
-    <string name="book_author">"Type a book author…"</string>
+    <string name="todo_name">"Type a todo name…"</string>
+    <string name="todo_description">"Type a todo description…"</string>
     <!--Messages-->
-    <string name="empty_book_field_message">"Book %1$s cannot be empty."</string>
-    <string name="no_book_updates_message">"No book updates performed."</string>
-    <string name="book_action_message">"Book successfully %1$s."</string>
+    <string name="empty_todo_field_message">"Todo %1$s cannot be empty."</string>
+    <string name="no_todo_updates_message">"No todo updates performed."</string>
+    <string name="todo_action_message">"Todo successfully %1$s."</string>
     <!--Testing-->
-    <string name="title_test">"Title Test"</string>
-    <string name="author_test">"Author Test"</string>
-    <string name="new_title_test">"New Title Test"</string>
+    <string name="name_test">"Name Test"</string>
+    <string name="description_test">"Description Test"</string>
+    <string name="new_name_test">"New Name Test"</string>
 </resources>

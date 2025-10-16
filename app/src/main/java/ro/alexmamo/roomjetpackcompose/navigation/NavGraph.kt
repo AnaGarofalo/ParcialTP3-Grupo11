@@ -5,9 +5,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import ro.alexmamo.roomjetpackcompose.domain.model.toBookDetails
-import ro.alexmamo.roomjetpackcompose.presentation.book_list.BookListScreen
-import ro.alexmamo.roomjetpackcompose.presentation.book_details.BookDetailsScreen
+import ro.alexmamo.roomjetpackcompose.domain.model.toTodoDetails
+import ro.alexmamo.roomjetpackcompose.presentation.todo_details.TodoDetailsScreen
+import ro.alexmamo.roomjetpackcompose.presentation.todo_list.TodoListScreen
 
 @Composable
 fun NavGraph(
@@ -15,21 +15,21 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = BookListScreen
+        startDestination = TodoListScreen
     ) {
-        composable<BookListScreen> {
-            BookListScreen(
-                navigateToBookDetailsScreen = { book ->
-                    val bookDetails = book.toBookDetails()
-                    navController.navigate(bookDetails)
+        composable<TodoListScreen> {
+            TodoListScreen(
+                navigateToTodoDetailsScreen = { todo ->
+                    val todoDetails = todo.toTodoDetails()
+                    navController.navigate(todoDetails)
                 }
             )
         }
-        composable<BookDetails> { entry ->
-            val bookDetails = entry.toRoute<BookDetails>()
-            val book = bookDetails.toBook()
-            BookDetailsScreen(
-                book = book,
+        composable<TodoDetails> { entry ->
+            val todoDetails = entry.toRoute<TodoDetails>()
+            val todo = todoDetails.toTodo()
+            TodoDetailsScreen (
+                todo = todo,
                 navigateBack = navController::navigateUp
             )
         }
