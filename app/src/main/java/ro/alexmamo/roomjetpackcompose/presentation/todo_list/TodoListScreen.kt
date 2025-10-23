@@ -13,6 +13,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil.compose.AsyncImage
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.LoadingIndicator
 import ro.alexmamo.roomjetpackcompose.core.logMessage
@@ -67,6 +68,10 @@ fun TodoListScreen(
                         innerPadding = innerPadding
                     )
                 } else {
+                    AsyncImage(
+                        model = "https://shorthand.com/the-craft/vector-images/assets/6n3s11ARUn/sh-unsplash_-uqzptoj8nk-4096x2731.jpeg",
+                        contentDescription = null,
+                    )
                     TodoListContent(
                         innerPadding = innerPadding,
                         todoList = todoList,
