@@ -68,10 +68,6 @@ fun TodoListScreen(
                         innerPadding = innerPadding
                     )
                 } else {
-                    AsyncImage(
-                        model = "https://shorthand.com/the-craft/vector-images/assets/6n3s11ARUn/sh-unsplash_-uqzptoj8nk-4096x2731.jpeg",
-                        contentDescription = null,
-                    )
                     TodoListContent(
                         innerPadding = innerPadding,
                         todoList = todoList,

@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     //Hilt
     implementation(libs.hilt)
+    implementation(libs.material3)
     ksp(libs.hilt.compiler)
     //Room
     implementation(libs.room.runtime)
@@ -53,6 +54,9 @@ dependencies {
     ksp(libs.room.compiler)
     //Coil
     implementation(libs.coil.compose)
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
     //Serialization
     implementation(libs.serialization)
     //Tests

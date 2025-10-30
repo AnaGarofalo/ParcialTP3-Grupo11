@@ -8,6 +8,9 @@ import ro.alexmamo.roomjetpackcompose.domain.model.Todo
 object TodoListScreen
 
 @Serializable
+object ProductsListScreen
+
+@Serializable
 data class TodoDetails(
     val id: Int,
     val name: String,
