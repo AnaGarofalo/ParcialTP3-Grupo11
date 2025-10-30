@@ -18,12 +18,21 @@ import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 
+enum class ButtonGreenType {
+    DARK, LIGHT
+}
+
 @Composable
-fun ButtonsLightGreen(
+fun ButtonsGreen(
     text: String,
+    type: ButtonGreenType,
     onClick: () -> Unit
 ) {
-    val backgroundColor = LightGreen
+    val backgroundColor = when (type) {
+        ButtonGreenType.DARK -> CaribbeanGreen
+        ButtonGreenType.LIGHT -> LightGreen
+    }
+
     val textColor = Void
 
     Box(

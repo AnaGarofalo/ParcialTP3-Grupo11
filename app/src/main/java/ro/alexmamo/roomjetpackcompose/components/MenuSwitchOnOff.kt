@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,8 +18,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
-import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
-import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 
 @Composable
 fun MenuSwitchOnOff(
@@ -30,13 +29,15 @@ fun MenuSwitchOnOff(
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .background(LightGreen, RoundedCornerShape(22.dp))
+            .background(color = MaterialTheme.colorScheme.surface, RoundedCornerShape(22.dp))
             .padding(horizontal = 8.dp, vertical = 6.dp)
     ) {
         options.forEachIndexed { index, label ->
             val isSelected = index == selectedIndex
-            val backgroundColor = if (isSelected) CaribbeanGreen else LightGreen
-            val textColor = Void
+            val backgroundColor = if (isSelected) CaribbeanGreen else
+                MaterialTheme.colorScheme.surface
+            val textColor = if (isSelected) MaterialTheme.colorScheme.onPrimary else
+                MaterialTheme.colorScheme.onSecondary
 
             Box(
                 modifier = Modifier

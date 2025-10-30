@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -15,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import ro.alexmamo.roomjetpackcompose.R
-import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
 
 @Composable
 fun BottomNavigationBar() {
@@ -33,7 +33,10 @@ fun BottomNavigationBar() {
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
-            .background(LightGreen, RoundedCornerShape(topStart = 70.dp, topEnd = 70.dp)),
+            .background(
+                color = MaterialTheme.colorScheme.surface, // o background, según prefieras
+                shape = RoundedCornerShape(topStart = 70.dp, topEnd = 70.dp)
+            ),
             contentAlignment = Alignment.Center
     ) {
         Row(
