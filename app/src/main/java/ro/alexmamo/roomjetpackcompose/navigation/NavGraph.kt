@@ -6,6 +6,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import ro.alexmamo.roomjetpackcompose.domain.model.toTodoDetails
+import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserScreen
+import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserViewModel
+import ro.alexmamo.roomjetpackcompose.presentation.home.HomeScreen
+import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
@@ -19,11 +23,13 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = LoginScreen
+        startDestination = HomeScreen
     ) {
 
         val loginViewModel = LoginViewModel()
         val userViewModel = UserViewModel()
+        val createUserViewModel = CreateUserViewModel()
+        val walletViewModel = WalletViewModel()
 
         composable<TodoListScreen> {
             TodoListScreen(
@@ -36,8 +42,17 @@ fun NavGraph(
         composable<UserScreen> {
             ProfileScreen(userViewModel)
         }
+        composable<HomeScreen> {
+            HomeScreen(walletViewModel)
+        }
         composable<LoginScreen> {
             LoginScreen(loginViewModel, onLoginSuccess = { token ->
+                navController.navigate(UserScreen)
+            })
+        }
+
+        composable<CreateUserScreen> {
+            CreateUserScreen(createUserViewModel, onCreateUserSuccess = { user ->
                 navController.navigate(UserScreen)
             })
         }
