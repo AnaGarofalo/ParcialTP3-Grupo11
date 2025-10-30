@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
-import com.example.challenge2.ui.theme.CustomTheme
 import dagger.hilt.android.AndroidEntryPoint
 import ro.alexmamo.roomjetpackcompose.navigation.NavGraph
+import ro.alexmamo.roomjetpackcompose.ui.theme.CustomTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
