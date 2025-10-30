@@ -21,6 +21,8 @@ uiTestManifest = "1.7.8"
 material3 = "1.4.0"
 foundation = "1.9.4"
 ui = "1.9.4"
+lifecycleViewmodelKtx = "2.9.4"
+runtime = "1.9.4"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
@@ -56,3 +58,5 @@ ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.re
 material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
 ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }

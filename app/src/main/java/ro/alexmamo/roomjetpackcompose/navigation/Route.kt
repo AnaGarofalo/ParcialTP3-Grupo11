@@ -8,7 +8,10 @@ import ro.alexmamo.roomjetpackcompose.domain.model.Todo
 object TodoListScreen
 
 @Serializable
-object ProductsListScreen
+object LoginScreen
+
+@Serializable
+object UserScreen
 
 @Serializable
 data class TodoDetails(
