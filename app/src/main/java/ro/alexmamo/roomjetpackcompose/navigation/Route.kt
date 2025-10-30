@@ -11,6 +11,9 @@ object TodoListScreen
 object ProductsListScreen
 
 @Serializable
+object LoginScreen
+
+@Serializable
 data class TodoDetails(
     val id: Int,
     val name: String,
