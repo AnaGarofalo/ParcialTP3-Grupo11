@@ -47,6 +47,8 @@ dependencies {
     //Hilt
     implementation(libs.hilt)
     implementation(libs.material3)
+    implementation(libs.foundation)
+    implementation(libs.ui)
     ksp(libs.hilt.compiler)
     //Room
     implementation(libs.room.runtime)
