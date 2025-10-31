@@ -47,6 +47,8 @@ dependencies {
     //Hilt
     implementation(libs.hilt)
     implementation(libs.material3)
+    implementation(libs.foundation)
+    implementation(libs.ui)
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.runtime)
     ksp(libs.hilt.compiler)

@@ -12,10 +12,16 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     background = FenceGreen,
+    surface = Cyprus,
+    onPrimary = Void,
+    onSecondary = Honeydew
 )
 
 private val LightColorScheme = lightColorScheme(
-    background = CaribbeanGreen
+    background = CaribbeanGreen,
+    surface = LightGreen,
+    onPrimary = Void,
+    onSecondary = Void
 
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),

@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun LoadingIndicator() {
+    // ESTO ESTA PENDIENTE AUN
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
