@@ -14,6 +14,9 @@ object LoginScreen
 object CreateUserScreen
 
 @Serializable
+object HomeScreen
+
+@Serializable
 object UserScreen
 
 @Serializable
