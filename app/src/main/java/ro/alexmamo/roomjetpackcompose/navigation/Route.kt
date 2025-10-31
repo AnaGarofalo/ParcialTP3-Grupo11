@@ -11,6 +11,9 @@ object TodoListScreen
 object LoginScreen
 
 @Serializable
+object CreateUserScreen
+
+@Serializable
 object UserScreen
 
 @Serializable
