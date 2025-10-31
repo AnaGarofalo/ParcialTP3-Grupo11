@@ -18,6 +18,9 @@
     <!--Content Descriptions-->
     <string name="open_insert_todo_dialog">"Open insert todo dialog."</string>
     <string name="navigate_back">Navigate back</string>
+    <string name="notification_title">Notification</string>
+    <string name="cd_back">Navigate back</string>
+    <string name="cd_notifications">Notifications</string>
     <!--Placeholders-->
     <string name="todo_name">"Type a todo name…"</string>
     <string name="todo_description">"Type a todo description…"</string>
