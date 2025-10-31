@@ -23,6 +23,15 @@
     <string name="today_section_title">Today</string>
     <string name="yesterday_section_title">Yesterday</string>
     <string name="thisweekend_section_title">This Weekend</string>
+    <!-- Notification details -->
+    <string name="notif_reminder_title">Reminder!</string>
+    <string name="notif_reminder_message">Set up your automatic savings to meet your savings goal...</string>
+    <string name="notif_new_update_title">New Update</string>
+    <string name="notif_transactions_title">Transactions</string>
+    <string name="notif_transactions_message">A new transaction has been registered\nGroceries | Pantry | -$100,00</string>
+    <string name="notif_expense_title">Expense record</string>
+    <string name="notif_expense_message">We recommend that you be more attentive to your finances.</string>
+    <string name="notification_time_example">17:00 - April 24</string>
     <!--Placeholders-->
     <string name="todo_name">"Type a todo name…"</string>
     <string name="todo_description">"Type a todo description…"</string>
