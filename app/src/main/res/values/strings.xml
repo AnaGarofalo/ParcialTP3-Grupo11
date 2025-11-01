@@ -32,4 +32,22 @@
     <string name="name_test">"Name Test"</string>
     <string name="description_test">"Description Test"</string>
     <string name="new_name_test">"New Name Test"</string>
+    <string name="login_error">Login error</string>
+    <string name="ok">OK</string>
+    <string name="welcome">Welcome</string>
+    <string name="coded_password_placeholder">● ● ● ● ● ● ● ●</string>
+    <string name="coded_password_code">●</string>
+    <string name="username_or_email">Username Or Email</string>
+    <string name="example_example_com">example@example.com</string>
+    <string name="password">Password</string>
+    <string name="password_placeholder">password</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="or_sign_up_with">or sign up with</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="facebook">facebook</string>
+    <string name="google">google</string>
+    <string name="sign_up_caps">Sign up</string>
+    <string name="forgot_password_title">Forgot Password</string>
 </resources>

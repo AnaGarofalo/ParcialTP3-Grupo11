@@ -1,4 +1,4 @@
-package ro.alexmamo.roomjetpackcompose.presentation.login
+package ro.alexmamo.roomjetpackcompose.presentation.forgot_password
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
@@ -7,21 +7,18 @@ import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.LoginTitle
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
+import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.components.LoginForm
 
 @Composable
-fun LoginScreen(
-    viewModel: LoginViewModel = viewModel(),
+fun ForgotPasswordScreen (
     navController: NavHostController
 ) {
     BaseScreen(
         centerContent = true,
-        header = { LoginTitle(text = stringResource(R.string.welcome)) },
+        header = { LoginTitle(text = stringResource(R.string.forgot_password_title)) },
         content = {
-            LoginForm(
-                navController,
-                viewModel
-            )
+
         }
     )
 }
