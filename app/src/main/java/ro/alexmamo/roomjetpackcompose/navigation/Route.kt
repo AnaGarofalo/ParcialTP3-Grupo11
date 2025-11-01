@@ -23,6 +23,12 @@ object UserScreen
 object ForgotPasswordScreen
 
 @Serializable
+object LaunchAScreen
+
+@Serializable
+object LaunchBScreen
+
+@Serializable
 data class TodoDetails(
     val id: Int,
     val name: String,
