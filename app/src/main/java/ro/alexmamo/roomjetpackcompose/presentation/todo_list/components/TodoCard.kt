@@ -1,6 +1,7 @@
 package ro.alexmamo.roomjetpackcompose.presentation.todo_list.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,6 +14,7 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.ActionIconButton
@@ -53,13 +55,25 @@ fun TodoCard(
             )
             ActionIconButton(
                 onActionIconButtonClick = onEditTodo,
-                imageVector = Icons.Default.Edit,
-                resourceId = R.string.edit_icon
+                withCircle = false,
+                content = { mod ->
+                    androidx.compose.material.Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = stringResource(id = R.string.edit_icon),
+                        modifier = mod
+                    )
+                }
             )
             ActionIconButton(
                 onActionIconButtonClick = onDeleteTodo,
-                imageVector = Icons.Default.Delete,
-                resourceId = R.string.delete_icon
+                withCircle = false,
+                content = { mod ->
+                    androidx.compose.material.Icon(
+                        imageVector = Icons.Default.Delete,
+                        contentDescription = stringResource(id = R.string.delete_icon),
+                        modifier = mod
+                    )
+                }
             )
         }
     }
