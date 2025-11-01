@@ -1,6 +1,8 @@
 <resources>
     <!--App-->
     <string name="app_name">RoomJetpackCompose</string>
+    <string name="finwise">FinWise</string>
+    <string name="lorem_ipsum">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. "</string>
     <string name="db_name">todos_db</string>
     <!--Screen Names-->
     <string name="todo_list_screen_name">"Todo List"</string>
@@ -43,4 +45,6 @@
     <string name="name_test">"Name Test"</string>
     <string name="description_test">"Description Test"</string>
     <string name="new_name_test">"New Name Test"</string>
+    <!-- Added: Forgot password string used in LaunchBScreen -->
+    <string name="forgot_password">"Forgot Password?"</string>
 </resources>
