@@ -9,19 +9,22 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
 
 private val DarkColorScheme = darkColorScheme(
     background = FenceGreen,
     surface = Cyprus,
     onPrimary = Void,
-    onSecondary = Honeydew
+    onSecondary = Honeydew,
+    onTertiary = LightGreen // usado para la mayoría de los textos
 )
 
 private val LightColorScheme = lightColorScheme(
     background = CaribbeanGreen,
-    surface = LightGreen,
+    surface = Honeydew,
     onPrimary = Void,
-    onSecondary = Void
+    onSecondary = Void,
+    onTertiary = Void // usado para la mayoría de los textos
 
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),

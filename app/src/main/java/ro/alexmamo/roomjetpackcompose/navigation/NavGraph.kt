@@ -23,7 +23,7 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = HomeScreen
+        startDestination = LoginScreen
     ) {
 
         val loginViewModel = LoginViewModel()

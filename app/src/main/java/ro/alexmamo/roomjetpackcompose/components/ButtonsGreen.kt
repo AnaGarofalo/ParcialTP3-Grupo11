@@ -47,8 +47,8 @@ fun ButtonsGreen(
         Text(
             text = text,
             color = textColor,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Medium
         )
     }
 }
