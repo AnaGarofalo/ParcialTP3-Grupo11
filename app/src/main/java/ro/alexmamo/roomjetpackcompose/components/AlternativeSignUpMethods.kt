@@ -1,4 +1,4 @@
-package ro.alexmamo.roomjetpackcompose.presentation.login.components
+package ro.alexmamo.roomjetpackcompose.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

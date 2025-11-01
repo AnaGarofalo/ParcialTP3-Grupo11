@@ -46,9 +46,7 @@ fun NavGraph(
             HomeScreen(walletViewModel)
         }
         composable<LoginScreen> {
-            LoginScreen(loginViewModel, onLoginSuccess = { token ->
-                navController.navigate(UserScreen)
-            })
+            LoginScreen(loginViewModel, navController)
         }
 
         composable<CreateUserScreen> {
