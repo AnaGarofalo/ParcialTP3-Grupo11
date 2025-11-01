@@ -61,4 +61,19 @@
     <string name="google">google</string>
     <string name="sign_up_caps">Sign up</string>
     <string name="forgot_password_title">Forgot Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_up_error">Sign Up Error</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="_123_456_789">+ 123 456 789</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="dd_mm_yyy">DD / MM /YYY</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="by_continuing_you_agree_to">"By continuing, you agree to "</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="and">" and "</string>
+    <string name="privacy_policy">Privacy Policy.</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="log_in_2">Log in</string>
 </resources>
