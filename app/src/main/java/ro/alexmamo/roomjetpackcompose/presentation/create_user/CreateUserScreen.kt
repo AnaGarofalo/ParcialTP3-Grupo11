@@ -6,29 +6,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.components.LoginTitle
 import ro.alexmamo.roomjetpackcompose.infraestructure.user.User
+import ro.alexmamo.roomjetpackcompose.presentation.create_user.components.CreateUserForm
+import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
+import ro.alexmamo.roomjetpackcompose.presentation.login.components.LoginForm
 
 @Composable
 fun CreateUserScreen(
     viewModel: CreateUserViewModel = viewModel(),
-    onCreateUserSuccess: (User) -> Unit
+    navController: NavHostController,
 ) {
-    val uiState by viewModel.uiState.collectAsState()
-
-    Button(onClick = { viewModel.createUser("email", "pass", "user") }) {
-        Text("Crear usuario")
-    }
-
-    when (uiState) {
-        is CreateUserViewModel.UiState.Loading -> Text("Cargando...")
-        is CreateUserViewModel.UiState.Success -> {
-            val user = (uiState as CreateUserViewModel.UiState.Success).user
-            LaunchedEffect(Unit) {
-                onCreateUserSuccess(user)
-            }
+    BaseScreen(
+        centerContent = true,
+        header = { LoginTitle(text = stringResource(R.string.create_account)) },
+        content = {
+            CreateUserForm(
+                navController,
+                viewModel
+            )
         }
-        is CreateUserViewModel.UiState.Error -> Text("Error: ${(uiState as CreateUserViewModel.UiState.Error).message}")
-        else -> {}
-    }
+    )
 }
