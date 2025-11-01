@@ -17,6 +17,8 @@ import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.todo_details.TodoDetailsScreen
 import ro.alexmamo.roomjetpackcompose.presentation.todo_list.TodoListScreen
+import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchAScreen
+import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchBScreen
 
 @Composable
 fun NavGraph(
@@ -24,13 +26,27 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = LoginScreen
+        startDestination = LaunchAScreen
     ) {
 
         val loginViewModel = LoginViewModel()
         val userViewModel = UserViewModel()
         val createUserViewModel = CreateUserViewModel()
         val walletViewModel = WalletViewModel()
+
+        // Launch A: Launch screen
+        composable<LaunchAScreen> {
+            LaunchAScreen(onFinished = { navController.navigate(LaunchBScreen) })
+        }
+
+        // Launch B: Landing/Login screen
+        composable<LaunchBScreen> {
+            LaunchBScreen(
+                onLogIn = { navController.navigate(LoginScreen) },
+                onSignUp = { navController.navigate(CreateUserScreen) },
+                onForgotPassword = { navController.navigate(ForgotPasswordScreen) }
+            )
+        }
 
         composable<UserScreen> { // Profile
             ProfileScreen(userViewModel)
