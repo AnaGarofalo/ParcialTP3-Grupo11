@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import ro.alexmamo.roomjetpackcompose.ui.theme.Cyprus
 import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.ui.theme.FenceGreen
 
 @Composable
 fun BaseInput(
@@ -112,6 +113,7 @@ fun BaseInput(
             textStyle = MaterialTheme.typography.bodyMedium.copy(
                 fontSize = 15.sp,
                 lineHeight = 15.sp,
+                color = FenceGreen
             ),
             outputTransformation = if (showPassword.value || !isPassword) null
             else passwordMask,
