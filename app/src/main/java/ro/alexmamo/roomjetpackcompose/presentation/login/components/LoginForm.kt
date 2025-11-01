@@ -19,6 +19,7 @@ import ro.alexmamo.roomjetpackcompose.components.AlternativeSignUpMethods
 import ro.alexmamo.roomjetpackcompose.components.BaseInput
 import ro.alexmamo.roomjetpackcompose.components.ButtonGreenType
 import ro.alexmamo.roomjetpackcompose.components.ButtonsGreen
+import ro.alexmamo.roomjetpackcompose.navigation.CreateUserScreen
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 
 @Composable
@@ -64,12 +65,12 @@ fun LoginForm(
 
         ButtonsGreen(
             text = stringResource(R.string.sign_up),
-            onClick = {},
+            onClick = {navController.navigate(CreateUserScreen)},
             type = ButtonGreenType.LIGHT
         )
 
         FingerprintButton()
 
-        AlternativeSignUpMethods()
+        AlternativeSignUpMethods(navController)
     }
 }

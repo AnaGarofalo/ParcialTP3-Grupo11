@@ -3,6 +3,7 @@ package ro.alexmamo.roomjetpackcompose.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
@@ -11,11 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.navigation.CreateUserScreen
 
 @Composable
-fun AlternativeSignUpMethods() {
+fun AlternativeSignUpMethods(
+    navController: NavHostController,
+) {
     Text(
         text = stringResource(R.string.or_sign_up_with),
         style = MaterialTheme.typography.labelSmall,
@@ -44,8 +50,15 @@ fun AlternativeSignUpMethods() {
         Text(text = stringResource(R.string.don_t_have_an_account),
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onTertiary)
-        Text(text = stringResource(R.string.sign_up_caps),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.surfaceBright)
+
+        ClickableText (
+            text = AnnotatedString(stringResource(R.string.sign_up_caps)),
+            style = MaterialTheme.typography.labelSmall.copy(
+                color = MaterialTheme.colorScheme.surfaceBright
+            ),
+            onClick = {
+                navController.navigate(CreateUserScreen)
+            }
+        )
     }
 }
