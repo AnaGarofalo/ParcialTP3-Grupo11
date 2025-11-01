@@ -41,4 +41,7 @@
     <string name="example_example_com">example@example.com</string>
     <string name="password">Password</string>
     <string name="password_placeholder">password</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forgot_password">Forgot Password?</string>
 </resources>

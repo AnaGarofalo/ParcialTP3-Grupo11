@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
+import ro.alexmamo.roomjetpackcompose.ui.theme.FenceGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 
@@ -25,7 +26,7 @@ enum class ButtonGreenType {
 @Composable
 fun ButtonsGreen(
     text: String,
-    type: ButtonGreenType,
+    type: ButtonGreenType = ButtonGreenType.DARK,
     onClick: () -> Unit
 ) {
     val backgroundColor = when (type) {
@@ -33,7 +34,7 @@ fun ButtonsGreen(
         ButtonGreenType.LIGHT -> LightGreen
     }
 
-    val textColor = Void
+    val textColor = FenceGreen
 
     Box(
         modifier = Modifier

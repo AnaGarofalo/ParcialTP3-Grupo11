@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.input.OutputTransformation
 import androidx.compose.foundation.text.input.TextFieldBuffer
 import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,13 +35,13 @@ import ro.alexmamo.roomjetpackcompose.R
 
 @Composable
 fun BaseInput(
+    externalState: TextFieldState? = null,
     label: String,
     placeholder: String,
     modifier: Modifier = Modifier,
-    icon: ImageVector? = null,
     isPassword: Boolean = false
 ) {
-    val value = rememberTextFieldState(initialText = "")
+    val value = externalState ?: rememberTextFieldState(initialText = "")
     val showPassword = remember { mutableStateOf(false) }
 
     val passwordMask = object : OutputTransformation {

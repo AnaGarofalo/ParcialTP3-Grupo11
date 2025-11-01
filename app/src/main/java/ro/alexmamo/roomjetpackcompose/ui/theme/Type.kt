@@ -40,5 +40,11 @@ val Typography = Typography(
         fontFamily = Poppins,
         fontWeight = FontWeight.Medium,
         fontSize = 15.sp,
+    ),
+    titleSmall = TextStyle(
+        fontFamily = Poppins,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        lineHeight = 16.sp,
     )
 )
