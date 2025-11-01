@@ -49,4 +49,5 @@
     <string name="facebook">facebook</string>
     <string name="google">google</string>
     <string name="sign_up_caps">Sign up</string>
+    <string name="forgot_password_title">Forgot Password</string>
 </resources>

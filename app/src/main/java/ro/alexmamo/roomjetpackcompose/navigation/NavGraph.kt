@@ -8,6 +8,7 @@ import androidx.navigation.toRoute
 import ro.alexmamo.roomjetpackcompose.domain.model.toTodoDetails
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserViewModel
+import ro.alexmamo.roomjetpackcompose.presentation.forgot_password.ForgotPasswordScreen
 import ro.alexmamo.roomjetpackcompose.presentation.home.HomeScreen
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
@@ -31,6 +32,29 @@ fun NavGraph(
         val createUserViewModel = CreateUserViewModel()
         val walletViewModel = WalletViewModel()
 
+        composable<UserScreen> { // Profile
+            ProfileScreen(userViewModel)
+        }
+        composable<HomeScreen> { // Homepage
+            HomeScreen(walletViewModel)
+        }
+        composable<LoginScreen> { // Login
+            LoginScreen(loginViewModel, navController)
+        }
+        composable<ForgotPasswordScreen> { // Forgot Password
+            ForgotPasswordScreen(navController)
+        }
+        composable<CreateUserScreen> { // Sign up
+            CreateUserScreen(createUserViewModel, onCreateUserSuccess = { user ->
+                navController.navigate(UserScreen)
+            })
+        }
+
+
+
+
+
+        // TO delete
         composable<TodoListScreen> {
             TodoListScreen(
                 navigateToTodoDetailsScreen = { todo ->
@@ -38,21 +62,6 @@ fun NavGraph(
                     navController.navigate(todoDetails)
                 }
             )
-        }
-        composable<UserScreen> {
-            ProfileScreen(userViewModel)
-        }
-        composable<HomeScreen> {
-            HomeScreen(walletViewModel)
-        }
-        composable<LoginScreen> {
-            LoginScreen(loginViewModel, navController)
-        }
-
-        composable<CreateUserScreen> {
-            CreateUserScreen(createUserViewModel, onCreateUserSuccess = { user ->
-                navController.navigate(UserScreen)
-            })
         }
         composable<TodoDetails> { entry ->
             val todoDetails = entry.toRoute<TodoDetails>()
