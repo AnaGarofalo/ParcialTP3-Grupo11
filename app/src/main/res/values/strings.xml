@@ -44,4 +44,9 @@
     <string name="log_in">Log In</string>
     <string name="sign_up">Sign Up</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="or_sign_up_with">or sign up with</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="facebook">facebook</string>
+    <string name="google">google</string>
+    <string name="sign_up_caps">Sign up</string>
 </resources>

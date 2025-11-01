@@ -43,7 +43,7 @@ fun LoginForm() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(top = 70.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp) // gap de 16dp
     ) {
@@ -65,5 +65,7 @@ fun LoginForm() {
         )
 
         FingerprintButton()
+
+        AlternativeSignUpMethods()
     }
 }
