@@ -45,9 +45,7 @@ fun NavGraph(
             ForgotPasswordScreen(navController)
         }
         composable<CreateUserScreen> { // Sign up
-            CreateUserScreen(createUserViewModel, onCreateUserSuccess = { user ->
-                navController.navigate(UserScreen)
-            })
+            CreateUserScreen(createUserViewModel, navController)
         }
 
 
