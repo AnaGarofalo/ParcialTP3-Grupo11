@@ -20,7 +20,7 @@ private val DarkColorScheme = darkColorScheme(
     surfaceBright = LightGreen,
     secondary = Honeydew,
     tertiary = DarkGreen,
-    onPrimaryFixed = Cyprus
+    onPrimaryFixed = Cyprus,
 )
 
 private val LightColorScheme = lightColorScheme(

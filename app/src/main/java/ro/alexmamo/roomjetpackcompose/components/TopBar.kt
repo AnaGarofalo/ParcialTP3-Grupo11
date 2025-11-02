@@ -30,7 +30,7 @@ fun AppTopBar(
 
         if (title != null) {
             Box(modifier = Modifier.align(Alignment.Center)) {
-                Text(text = title, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onTertiary)
+                Text(text = title, style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onTertiary)
             }
         }
 
