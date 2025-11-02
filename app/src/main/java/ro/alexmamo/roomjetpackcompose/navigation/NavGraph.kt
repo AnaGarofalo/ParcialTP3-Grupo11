@@ -13,8 +13,11 @@ import ro.alexmamo.roomjetpackcompose.presentation.home.HomeScreen
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
+import ro.alexmamo.roomjetpackcompose.presentation.new_password.NewPasswordScreen
+import ro.alexmamo.roomjetpackcompose.presentation.password_changed.PasswordChangedScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
+import ro.alexmamo.roomjetpackcompose.presentation.security_pin.SecurityPinScreen
 import ro.alexmamo.roomjetpackcompose.presentation.todo_details.TodoDetailsScreen
 import ro.alexmamo.roomjetpackcompose.presentation.todo_list.TodoListScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchAScreen
@@ -63,7 +66,15 @@ fun NavGraph(
         composable<CreateUserScreen> { // Sign up
             CreateUserScreen(createUserViewModel, navController)
         }
-
+        composable<SecurityPinScreen> { // Enter Security Pin
+            SecurityPinScreen(navController)
+        }
+        composable<NewPasswordScreen> { // New Password Screen
+            NewPasswordScreen(navController)
+        }
+        composable<PasswordChangedScreen>{
+            PasswordChangedScreen(navController)
+        }
 
 
 

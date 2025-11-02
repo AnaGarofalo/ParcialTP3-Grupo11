@@ -23,6 +23,15 @@ object UserScreen
 object ForgotPasswordScreen
 
 @Serializable
+object SecurityPinScreen
+
+@Serializable
+object NewPasswordScreen
+
+@Serializable
+object PasswordChangedScreen
+
+@Serializable
 object LaunchAScreen
 
 @Serializable
