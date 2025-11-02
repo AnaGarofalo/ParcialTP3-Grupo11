@@ -31,6 +31,11 @@ object NewPasswordScreen
 @Serializable
 object PasswordChangedScreen
 
+@Serializable
+object LaunchAScreen
+
+@Serializable
+object LaunchBScreen
 
 @Serializable
 data class TodoDetails(
