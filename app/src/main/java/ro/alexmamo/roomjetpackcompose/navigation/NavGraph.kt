@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import ro.alexmamo.roomjetpackcompose.domain.model.toTodoDetails
+import ro.alexmamo.roomjetpackcompose.presentation.account_balance.AccountBalanceScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.forgot_password.ForgotPasswordScreen
@@ -22,6 +23,8 @@ import ro.alexmamo.roomjetpackcompose.presentation.todo_details.TodoDetailsScree
 import ro.alexmamo.roomjetpackcompose.presentation.todo_list.TodoListScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchAScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchBScreen
+import ro.alexmamo.roomjetpackcompose.presentation.categories.CategoriesScreen
+import ro.alexmamo.roomjetpackcompose.presentation.transaction.TransactionScreen
 
 @Composable
 fun NavGraph(
@@ -51,11 +54,11 @@ fun NavGraph(
             )
         }
 
-        composable<UserScreen> { // Profile
-            ProfileScreen(userViewModel)
+        composable<ProfileScreen> { // Profile
+            ProfileScreen(navController = navController, viewModel = userViewModel)
         }
         composable<HomeScreen> { // Homepage
-            HomeScreen(walletViewModel)
+            HomeScreen(navController = navController, walletViewModel = walletViewModel)
         }
         composable<LoginScreen> { // Login
             LoginScreen(loginViewModel, navController)
@@ -72,11 +75,18 @@ fun NavGraph(
         composable<NewPasswordScreen> { // New Password Screen
             NewPasswordScreen(navController)
         }
-        composable<PasswordChangedScreen>{
+        composable<PasswordChangedScreen> {
             PasswordChangedScreen(navController)
         }
-
-
+        composable<AccountBalanceScreen> {
+            AccountBalanceScreen(navController)
+        }
+        composable<TransactionScreen> {
+            TransactionScreen(navController)
+        }
+        composable<CategoriesScreen> {
+            CategoriesScreen(navController)
+        }
 
 
         // TO delete
@@ -91,7 +101,7 @@ fun NavGraph(
         composable<TodoDetails> { entry ->
             val todoDetails = entry.toRoute<TodoDetails>()
             val todo = todoDetails.toTodo()
-            TodoDetailsScreen (
+            TodoDetailsScreen(
                 todo = todo,
                 navigateBack = navController::navigateUp
             )

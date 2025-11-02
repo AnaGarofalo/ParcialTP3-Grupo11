@@ -38,6 +38,18 @@ object LaunchAScreen
 object LaunchBScreen
 
 @Serializable
+object AccountBalanceScreen
+
+@Serializable
+object TransactionScreen
+
+@Serializable
+object ProfileScreen
+
+@Serializable
+object CategoriesScreen
+
+@Serializable
 data class TodoDetails(
     val id: Int,
     val name: String,

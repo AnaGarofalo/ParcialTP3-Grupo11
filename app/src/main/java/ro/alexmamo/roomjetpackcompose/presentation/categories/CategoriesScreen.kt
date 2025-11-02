@@ -1,4 +1,4 @@
-package ro.alexmamo.roomjetpackcompose.presentation.profile
+package ro.alexmamo.roomjetpackcompose.presentation.categories
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,9 +21,10 @@ import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
+import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
 
 @Composable
-fun ProfileScreen(
+fun CategoriesScreen(
     navController: NavHostController,
     viewModel: UserViewModel = viewModel()
 ) {
@@ -34,7 +35,7 @@ fun ProfileScreen(
     }
 
     BaseScreen(
-        title = stringResource(R.string.profile),
+        title = "Categories",
         bottomBar = { BottomNavigationBar(navController) },
         content = {
             Column(
@@ -44,21 +45,7 @@ fun ProfileScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                when (uiState) {
-                    is UserViewModel.UiState.Idle -> Text(stringResource(R.string.esperando_acci_n))
-                    is UserViewModel.UiState.Loading -> CircularProgressIndicator()
-                    is UserViewModel.UiState.Success -> {
-                        val user = (uiState as UserViewModel.UiState.Success).user
-                        Text("Usuario: ${user.name.firstname} ${user.name.lastname}")
-                        Spacer(Modifier.height(8.dp))
-                        Text("Email: ${user.email}")
-                        Text("Ciudad: ${user.address.city}")
-                    }
 
-                    is UserViewModel.UiState.Error -> Text(
-                        "Error: ${(uiState as UserViewModel.UiState.Error).message}",
-                    )
-                }
             }
         }
     )
