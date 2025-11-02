@@ -99,4 +99,6 @@
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="change_password">Change Password</string>
     <string name="password_has_been_changed_successfully">Password Has been Changed successfully</string>
+    <string name="profile">Profile</string>
+    <string name="esperando_acci_n">Esperando acción…</string>
 </resources>
