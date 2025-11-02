@@ -4,8 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
-import ro.alexmamo.roomjetpackcompose.domain.model.toTodoDetails
 import ro.alexmamo.roomjetpackcompose.presentation.account_balance.AccountBalanceScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserViewModel
