@@ -5,8 +5,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.LoadingIndicator
 import ro.alexmamo.roomjetpackcompose.core.logMessage
 import ro.alexmamo.roomjetpackcompose.domain.model.Response
@@ -21,7 +23,7 @@ fun DBUserSection(viewModel: UserListViewModel = hiltViewModel()) {
         is Response.Loading -> LoadingIndicator()
         is Response.Success -> userListResponse.data.let { userList ->
             if (userList.isEmpty()) {
-                Text("No hay usuarios agregados, para crear un usuario, completar formulario de Create Account")
+                Text(stringResource(R.string.no_hay_usuarios_agregados))
             } else {
                 Column {
                     userList.forEach { user ->
