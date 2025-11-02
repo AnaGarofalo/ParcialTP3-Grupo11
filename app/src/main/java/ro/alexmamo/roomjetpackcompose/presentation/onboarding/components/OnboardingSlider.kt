@@ -5,9 +5,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -17,27 +17,46 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import ro.alexmamo.roomjetpackcompose.presentation.onboarding.OnboardingPage
 import ro.alexmamo.roomjetpackcompose.presentation.onboarding.OnboardingPage as PageAlias
 import ro.alexmamo.roomjetpackcompose.ui.theme.Dimens
+import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
 
 @Composable
 fun OnboardingSlider(
     pages: List<PageAlias>,
     modifier: Modifier = Modifier,
-    onNext: (isLastPage: Boolean) -> Unit = {}
+    onNext: (isLastPage: Boolean) -> Unit = {},
+    onPageChanged: (index: Int) -> Unit = {}
 ) {
     val listState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
     var currentPage by remember { mutableStateOf(0) }
+    val finishJob = remember { mutableStateOf<Job?>(null) }
+    val autoFinishDelay = 1500L // ms
 
-    // Observe scroll to update current page
     LaunchedEffect(listState) {
-        snapshotFlow { listState.firstVisibleItemIndex }
-            .collect { index ->
+        var lastIndex = listState.firstVisibleItemIndex
+        while (true) {
+            val index = listState.firstVisibleItemIndex
+            if (index != lastIndex) {
+                lastIndex = index
                 currentPage = index
+                onPageChanged(index)
+                if (index == pages.lastIndex) {
+                    finishJob.value?.cancel()
+                    finishJob.value = coroutineScope.launch {
+                        delay(autoFinishDelay)
+                        onNext(true)
+                    }
+                } else {
+                    finishJob.value?.cancel()
+                }
             }
+            delay(100)
+        }
     }
 
     Column(
@@ -47,9 +66,7 @@ fun OnboardingSlider(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(360.dp)
-                .clip(RoundedCornerShape(24.dp))
-                .background(MaterialTheme.colorScheme.background),
+                .height(360.dp),
             contentAlignment = Alignment.Center
         ) {
             LazyRow(
@@ -58,26 +75,34 @@ fun OnboardingSlider(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
-                items(pages.size) { index ->
+                items(pages) { page ->
                     Box(
                         modifier = Modifier
                             .fillParentMaxWidth()
-                            .padding(24.dp),
+                            .padding(20.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        Image(
-                            painter = painterResource(id = pages[index].imageRes),
-                            contentDescription = null,
-                            contentScale = ContentScale.Fit,
+                        Box(
                             modifier = Modifier
-                                .size(287.dp)
-                        )
+                                .size(185.dp)
+                                .clip(CircleShape)
+                                .background(LightGreen),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Image(
+                                painter = painterResource(id = page.imageRes),
+                                contentDescription = null,
+                                contentScale = ContentScale.Fit,
+                                modifier = Modifier
+                                    .size(248.dp)
+                            )
+                        }
                     }
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(Dimens.paddingLarge))
+        Spacer(modifier = Modifier.height(Dimens.paddingMedium))
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
@@ -89,7 +114,15 @@ fun OnboardingSlider(
                     coroutineScope.launch {
                         val next = (currentPage + 1).coerceAtMost(pages.lastIndex)
                         listState.animateScrollToItem(next)
-                        if (next == pages.lastIndex) onNext(true) else onNext(false)
+                        if (next == pages.lastIndex) {
+                            finishJob.value?.cancel()
+                            finishJob.value = coroutineScope.launch {
+                                delay(autoFinishDelay)
+                                onNext(true)
+                            }
+                        } else {
+                            onNext(false)
+                        }
                     }
                 }
             )

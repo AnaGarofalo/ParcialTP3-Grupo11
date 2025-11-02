@@ -1,13 +1,15 @@
 package ro.alexmamo.roomjetpackcompose.presentation.onboarding
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
@@ -29,26 +31,42 @@ fun OnboardingScreen(
         )
     )
 
+    val currentPageState = remember { mutableStateOf(0) }
+
     BaseScreen(
-        centerContent = true,
+        centerContent = false,
         topBar = null,
         header = {
-            // Title lives in the green/top area (outside the rounded white card)
-            Text(
-                text = pages.getOrNull(0)?.title ?: "",
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 30.sp,
-                lineHeight = 39.sp,
-                textAlign = TextAlign.Center,
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = Dimens.paddingLarge)
-            )
+                    .padding(top = Dimens.paddingLarge),
+                contentAlignment = Alignment.TopCenter
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(width = 289.dp, height = 122.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = pages.getOrNull(currentPageState.value)?.title ?: "",
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 30.sp,
+                        lineHeight = 39.sp,
+                        textAlign = TextAlign.Center,
+                        color = MaterialTheme.colorScheme.inverseSurface,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = Dimens.paddingLarge)
+                    )
+                }
+            }
         },
         content = { _ ->
             Column(
                 modifier = Modifier
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .padding(top = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -56,10 +74,10 @@ fun OnboardingScreen(
                     pages = pages,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = Dimens.paddingLarge)
-                ) { isLastPage ->
-                    if (isLastPage) onFinished() else Unit
-                }
+                        .padding(horizontal = Dimens.paddingLarge),
+                    onNext = { if (it) onFinished() },
+                    onPageChanged = { currentPageState.value = it }
+                )
             }
         }
     )
