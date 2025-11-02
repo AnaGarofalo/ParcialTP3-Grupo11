@@ -16,6 +16,7 @@ import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.ButtonGreenType
 import ro.alexmamo.roomjetpackcompose.components.ButtonsGreen
+import ro.alexmamo.roomjetpackcompose.navigation.NewPasswordScreen
 
 @Composable
 fun SecurityPinForm(navController: NavHostController) {
@@ -44,7 +45,7 @@ fun SecurityPinForm(navController: NavHostController) {
                 modifier = Modifier
                     .height(32.dp)
                     .width(160.dp),
-                onClick = { }
+                onClick = { navController.navigate(NewPasswordScreen) }
             )
 
             ButtonsGreen(

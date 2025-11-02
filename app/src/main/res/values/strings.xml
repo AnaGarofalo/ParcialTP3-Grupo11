@@ -93,4 +93,7 @@
     <string name="enter_security_pin">Enter Security Pin</string>
     <string name="accept">Accept</string>
     <string name="send_again">Send Again</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="change_password">Change Password</string>
 </resources>
