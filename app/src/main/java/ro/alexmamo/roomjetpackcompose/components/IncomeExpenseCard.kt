@@ -30,7 +30,6 @@ fun IncomeExpenseCard(
     Box(
         modifier = modifier
             .width(171.dp)
-            .height(101.dp)
             .clip(RoundedCornerShape(14.89.dp))
             .background(Honeydew),
         contentAlignment = Alignment.Center
@@ -38,7 +37,7 @@ fun IncomeExpenseCard(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(12.dp)
         ) {
             // Ícono
             Icon(
@@ -48,17 +47,13 @@ fun IncomeExpenseCard(
                 modifier = Modifier.size(24.dp)
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
-
             // Título
             Text(
                 text = title,
                 fontSize = 14.sp,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.Medium,
                 color = Void
             )
-
-            Spacer(modifier = Modifier.height(4.dp))
 
             // Monto
             val formattedAmount = String.format(Locale.US, "%,.2f", amount)
@@ -66,7 +61,7 @@ fun IncomeExpenseCard(
             Text(
                 text = "$$formattedAmount",
                 fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.SemiBold,
                 color = amountColor
             )
         }
