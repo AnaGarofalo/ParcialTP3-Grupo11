@@ -18,7 +18,6 @@ class MainActivity : ComponentActivity() {
                 NavGraph(
                     navController = rememberNavController()
                 )
-
             }
         }
     }
