@@ -85,4 +85,9 @@
     <string name="account_balance">Account Balance</string>
     <string name="transactions">Transactions</string>
     <string name="october">October</string>
+    <string name="reset_password">Reset password?</string>
+    <string name="lorem_ipsum_dolor">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="next_step">Next Step</string>
+    <string name="security_pin">Security Pin</string>
 </resources>
