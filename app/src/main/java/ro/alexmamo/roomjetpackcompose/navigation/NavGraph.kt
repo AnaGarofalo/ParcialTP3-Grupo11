@@ -14,6 +14,7 @@ import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.new_password.NewPasswordScreen
+import ro.alexmamo.roomjetpackcompose.presentation.password_changed.PasswordChangedScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.security_pin.SecurityPinScreen
@@ -55,7 +56,9 @@ fun NavGraph(
         composable<NewPasswordScreen> { // New Password Screen
             NewPasswordScreen(navController)
         }
-
+        composable<PasswordChangedScreen>{
+            PasswordChangedScreen(navController)
+        }
 
 
 

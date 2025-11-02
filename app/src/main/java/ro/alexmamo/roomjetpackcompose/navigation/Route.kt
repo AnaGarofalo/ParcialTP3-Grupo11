@@ -28,6 +28,9 @@ object SecurityPinScreen
 @Serializable
 object NewPasswordScreen
 
+@Serializable
+object PasswordChangedScreen
+
 
 @Serializable
 data class TodoDetails(

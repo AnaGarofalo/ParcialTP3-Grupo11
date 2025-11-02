@@ -13,8 +13,10 @@ import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BaseInput
 import ro.alexmamo.roomjetpackcompose.components.ButtonsGreen
 import ro.alexmamo.roomjetpackcompose.components.LoginTitle
+import ro.alexmamo.roomjetpackcompose.navigation.PasswordChangedScreen
 import ro.alexmamo.roomjetpackcompose.navigation.SecurityPinScreen
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
+import ro.alexmamo.roomjetpackcompose.presentation.password_changed.PasswordChangedScreen
 
 @Composable
 fun NewPasswordScreen (
@@ -45,7 +47,7 @@ fun NewPasswordScreen (
                 modifier = Modifier
                     .height(45.dp)
                     .fillMaxWidth(),
-                onClick = { navController.navigate(SecurityPinScreen) }
+                onClick = { navController.navigate(PasswordChangedScreen) }
             )
             Spacer(modifier = Modifier.height(160.dp))
         }
