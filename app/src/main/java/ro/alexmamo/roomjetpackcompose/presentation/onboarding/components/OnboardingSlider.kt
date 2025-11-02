@@ -58,6 +58,8 @@ fun OnboardingSlider(
             delay(100)
         }
     }
+    val circleSize = 185.dp
+    val imageSize = 287.dp
 
     Column(
         modifier = modifier,
@@ -66,7 +68,7 @@ fun OnboardingSlider(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(360.dp),
+                .height(imageSize + 56.dp),
             contentAlignment = Alignment.Center
         ) {
             LazyRow(
@@ -79,22 +81,27 @@ fun OnboardingSlider(
                     Box(
                         modifier = Modifier
                             .fillParentMaxWidth()
-                            .padding(20.dp),
+                            .padding(8.dp),
                         contentAlignment = Alignment.Center
                     ) {
                         Box(
                             modifier = Modifier
-                                .size(185.dp)
-                                .clip(CircleShape)
-                                .background(LightGreen),
+                                .wrapContentSize(),
                             contentAlignment = Alignment.Center
                         ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(circleSize)
+                                    .clip(CircleShape)
+                                    .background(LightGreen),
+                                contentAlignment = Alignment.Center
+                            ) {}
                             Image(
                                 painter = painterResource(id = page.imageRes),
                                 contentDescription = null,
                                 contentScale = ContentScale.Fit,
                                 modifier = Modifier
-                                    .size(248.dp)
+                                    .size(imageSize)
                             )
                         }
                     }
@@ -110,6 +117,7 @@ fun OnboardingSlider(
             Text(
                 text = "Next",
                 style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.inverseSurface,
                 modifier = Modifier.clickable {
                     coroutineScope.launch {
                         val next = (currentPage + 1).coerceAtMost(pages.lastIndex)

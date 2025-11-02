@@ -74,7 +74,7 @@ fun OnboardingScreen(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(300.dp) // reducir la altura del content blanco a 300.dp para dar mas espacio al header
+                        .height(460.dp) // aumentar la altura del content blanco para alojar la imagen grande y texto
                         .padding(horizontal = Dimens.paddingLarge),
                     contentAlignment = Alignment.Center
                 ) {
