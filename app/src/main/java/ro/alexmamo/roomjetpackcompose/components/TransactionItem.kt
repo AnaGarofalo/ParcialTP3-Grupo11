@@ -86,7 +86,7 @@ fun TransactionItem(data: Transaction) {
         Box(
             modifier = Modifier
                 .weight(0.8f)
-                .padding(horizontal = 4.dp),
+                .padding(horizontal = 2.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
