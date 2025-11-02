@@ -34,7 +34,7 @@ fun BottomNavigationBar() {
             .fillMaxWidth()
             .height(100.dp)
             .background(
-                color = MaterialTheme.colorScheme.surface, // o background, según prefieras
+                color = MaterialTheme.colorScheme.onPrimaryFixed,
                 shape = RoundedCornerShape(topStart = 70.dp, topEnd = 70.dp)
             ),
             contentAlignment = Alignment.Center

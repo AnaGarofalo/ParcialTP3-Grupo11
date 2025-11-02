@@ -3,7 +3,6 @@ package ro.alexmamo.roomjetpackcompose.presentation.new_password
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -14,9 +13,7 @@ import ro.alexmamo.roomjetpackcompose.components.BaseInput
 import ro.alexmamo.roomjetpackcompose.components.ButtonsGreen
 import ro.alexmamo.roomjetpackcompose.components.LoginTitle
 import ro.alexmamo.roomjetpackcompose.navigation.PasswordChangedScreen
-import ro.alexmamo.roomjetpackcompose.navigation.SecurityPinScreen
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
-import ro.alexmamo.roomjetpackcompose.presentation.password_changed.PasswordChangedScreen
 
 @Composable
 fun NewPasswordScreen (

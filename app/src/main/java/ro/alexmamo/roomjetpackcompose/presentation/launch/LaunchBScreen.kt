@@ -65,13 +65,9 @@ fun LaunchBScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            ButtonsGreen(text = "Log In", type = ButtonGreenType.DARK) {
-                onLogIn()
-            }
+            ButtonsGreen(text = "Log In", type = ButtonGreenType.DARK, onClick = onLogIn)
             Spacer(modifier = Modifier.height(12.dp))
-            ButtonsGreen(text = "Sign Up", type = ButtonGreenType.LIGHT) {
-                onSignUp()
-            }
+            ButtonsGreen(text = "Sign Up", type = ButtonGreenType.LIGHT, onClick = onLogIn)
             Spacer(modifier = Modifier.height(6.dp))
             Text(
                 text = stringResource(id = R.string.forgot_password),

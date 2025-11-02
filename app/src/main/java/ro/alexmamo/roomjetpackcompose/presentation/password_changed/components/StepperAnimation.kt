@@ -21,7 +21,7 @@ fun StepperAnimation() {
 
         for (s in sequence) {
             step = s
-            delay(800) // ajustá el tiempo entre pasos si querés
+            delay(800)
         }
     }
 

@@ -7,6 +7,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
 import ro.alexmamo.roomjetpackcompose.components.TransactionList
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 
@@ -24,6 +25,7 @@ fun HomeScreen(
 
     BaseScreen(
         title = stringResource(R.string.hi_welcome_back),
+        bottomBar = { BottomNavigationBar() },
         content = { paddingValues ->
             Column(
                 modifier = Modifier

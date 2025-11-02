@@ -32,7 +32,7 @@ private val LightColorScheme = lightColorScheme(
     surfaceBright = OceanBlue,
     secondary = FenceGreen,
     tertiary = Honeydew,
-    onPrimaryFixed = LightGreen
+    onPrimaryFixed = LightGreen,
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,

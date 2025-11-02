@@ -53,7 +53,7 @@ fun LoginForm(
             .fillMaxWidth()
             .padding(top = 70.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp) // gap de 16dp
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         LogInButton(
             navController,
