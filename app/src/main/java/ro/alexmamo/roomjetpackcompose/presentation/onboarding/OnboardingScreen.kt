@@ -40,7 +40,7 @@ fun OnboardingScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = Dimens.paddingLarge),
+                    .padding(top = Dimens.paddingLarge * 3.5f, bottom = 80.dp), // aumentar espacio abajo del header
                 contentAlignment = Alignment.TopCenter
             ) {
                 Box(
@@ -53,6 +53,7 @@ fun OnboardingScreen(
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 30.sp,
                         lineHeight = 39.sp,
+                        letterSpacing = 0.sp,
                         textAlign = TextAlign.Center,
                         color = MaterialTheme.colorScheme.inverseSurface,
                         modifier = Modifier
@@ -62,22 +63,28 @@ fun OnboardingScreen(
                 }
             }
         },
-        content = { _ ->
-            Column(
+        content = { paddingValues ->
+            // Usar paddingValues que pasa BaseScreen (status bar top) y limitar la altura del area blanca
+            Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(top = 16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                    .padding(paddingValues),
+                contentAlignment = Alignment.TopCenter
             ) {
-                OnboardingSlider(
-                    pages = pages,
+                Box(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .height(300.dp) // reducir la altura del content blanco a 300.dp para dar mas espacio al header
                         .padding(horizontal = Dimens.paddingLarge),
-                    onNext = { if (it) onFinished() },
-                    onPageChanged = { currentPageState.value = it }
-                )
+                    contentAlignment = Alignment.Center
+                ) {
+                    OnboardingSlider(
+                        pages = pages,
+                        modifier = Modifier.fillMaxWidth(),
+                        onNext = { if (it) onFinished() },
+                        onPageChanged = { currentPageState.value = it }
+                    )
+                }
             }
         }
     )
