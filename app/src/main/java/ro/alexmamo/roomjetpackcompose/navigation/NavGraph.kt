@@ -19,6 +19,7 @@ import ro.alexmamo.roomjetpackcompose.presentation.todo_details.TodoDetailsScree
 import ro.alexmamo.roomjetpackcompose.presentation.todo_list.TodoListScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchAScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchBScreen
+import ro.alexmamo.roomjetpackcompose.presentation.onboarding.OnboardingScreen
 
 @Composable
 fun NavGraph(
@@ -43,9 +44,14 @@ fun NavGraph(
         composable<LaunchBScreen> {
             LaunchBScreen(
                 onLogIn = { navController.navigate(LoginScreen) },
-                onSignUp = { navController.navigate(CreateUserScreen) },
+                onSignUp = { navController.navigate(OnboardingScreen) },
                 onForgotPassword = { navController.navigate(ForgotPasswordScreen) }
             )
+        }
+
+        // Onboarding
+        composable<OnboardingScreen> {
+            OnboardingScreen(onFinished = { navController.navigate(CreateUserScreen) })
         }
 
         composable<UserScreen> { // Profile
