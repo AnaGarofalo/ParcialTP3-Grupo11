@@ -99,6 +99,12 @@
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="change_password">Change Password</string>
     <string name="password_has_been_changed_successfully">Password Has been Changed successfully</string>
+    <string name="api_user">Api User</string>
+    <string name="db_users">DB Users</string>
+    <string name="usuario">Usuario: %1$s %2$s</string>
+    <string name="ciudad">Ciudad: %1$s</string>
+    <string name="error">Error: %1$s</string>
     <string name="profile">Profile</string>
     <string name="esperando_acci_n">Esperando acción…</string>
+    <string name="no_hay_usuarios_agregados">No hay usuarios agregados, para crear un usuario, completar formulario de Create Account</string>
 </resources>
