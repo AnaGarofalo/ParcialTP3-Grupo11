@@ -52,4 +52,8 @@ val Typography = Typography(
         fontSize = 13.sp,
         lineHeight = 15.sp,
     ),
+    bodyMedium = TextStyle(
+        fontFamily = Poppins,
+        fontSize = 12.sp,
+    ),
 )

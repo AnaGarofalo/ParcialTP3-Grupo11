@@ -3,6 +3,7 @@ package ro.alexmamo.roomjetpackcompose.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -27,7 +28,8 @@ enum class ButtonGreenType {
 fun ButtonsGreen(
     text: String,
     type: ButtonGreenType = ButtonGreenType.DARK,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val backgroundColor = when (type) {
         ButtonGreenType.DARK -> CaribbeanGreen
@@ -37,9 +39,8 @@ fun ButtonsGreen(
     val textColor = FenceGreen
 
     Box(
-        modifier = Modifier
-            .width(207.dp)
-            .height(45.dp)
+        modifier = modifier
+            .defaultMinSize(minWidth = 207.dp, minHeight = 45.dp)
             .clip(RoundedCornerShape(28.dp))
             .background(backgroundColor)
             .clickable { onClick() },

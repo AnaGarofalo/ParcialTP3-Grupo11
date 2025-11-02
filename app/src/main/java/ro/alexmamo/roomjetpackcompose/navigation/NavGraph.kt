@@ -15,6 +15,7 @@ import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
+import ro.alexmamo.roomjetpackcompose.presentation.security_pin.SecurityPinScreen
 import ro.alexmamo.roomjetpackcompose.presentation.todo_details.TodoDetailsScreen
 import ro.alexmamo.roomjetpackcompose.presentation.todo_list.TodoListScreen
 
@@ -46,6 +47,9 @@ fun NavGraph(
         }
         composable<CreateUserScreen> { // Sign up
             CreateUserScreen(createUserViewModel, navController)
+        }
+        composable<SecurityPinScreen> { // Enter Security Pin
+            SecurityPinScreen(navController)
         }
 
 

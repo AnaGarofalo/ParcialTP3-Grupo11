@@ -23,6 +23,9 @@ object UserScreen
 object ForgotPasswordScreen
 
 @Serializable
+object SecurityPinScreen
+
+@Serializable
 data class TodoDetails(
     val id: Int,
     val name: String,
