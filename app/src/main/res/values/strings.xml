@@ -90,4 +90,7 @@
     <string name="enter_email_address">Enter email address</string>
     <string name="next_step">Next Step</string>
     <string name="security_pin">Security Pin</string>
+    <string name="enter_security_pin">Enter Security Pin</string>
+    <string name="accept">Accept</string>
+    <string name="send_again">Send Again</string>
 </resources>
