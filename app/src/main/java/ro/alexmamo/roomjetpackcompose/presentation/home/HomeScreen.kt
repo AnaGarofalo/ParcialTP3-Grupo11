@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
 import ro.alexmamo.roomjetpackcompose.components.TransactionList
@@ -13,6 +14,7 @@ import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 
 @Composable
 fun HomeScreen(
+    navController: NavHostController,
     walletViewModel: WalletViewModel = viewModel()
 ) {
 
@@ -25,7 +27,7 @@ fun HomeScreen(
 
     BaseScreen(
         title = stringResource(R.string.hi_welcome_back),
-        bottomBar = { BottomNavigationBar() },
+        bottomBar = { BottomNavigationBar(navController = navController) },
         content = { paddingValues ->
             Column(
                 modifier = Modifier
@@ -41,7 +43,11 @@ fun HomeScreen(
                     showSeeAll = false,
                     showSummaryCard = true,
                     showPeriodSwitch = true,
-                    periodOptions = listOf("Daily", "Weekly", "Monthly"), // Aca poner lo qu uno quiera mostrar
+                    periodOptions = listOf( // Esto queda como String porque se puede cambiar segun lo que se quiera mostrar
+                        "Daily",
+                        "Weekly",
+                        "Monthly"
+                    ),
                     walletViewModel = walletViewModel,
                     topPadding = 0.dp
                 )

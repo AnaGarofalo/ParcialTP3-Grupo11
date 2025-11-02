@@ -104,4 +104,6 @@
     <string name="usuario">Usuario: %1$s %2$s</string>
     <string name="ciudad">Ciudad: %1$s</string>
     <string name="error">Error: %1$s</string>
+    <string name="profile">Profile</string>
+    <string name="esperando_acci_n">Esperando acción…</string>
 </resources>

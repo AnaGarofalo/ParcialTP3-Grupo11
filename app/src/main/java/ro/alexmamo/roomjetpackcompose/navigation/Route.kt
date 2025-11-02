@@ -35,3 +35,15 @@ object LaunchAScreen
 
 @Serializable
 object LaunchBScreen
+
+@Serializable
+object AccountBalanceScreen
+
+@Serializable
+object TransactionScreen
+
+@Serializable
+object ProfileScreen
+
+@Serializable
+object CategoriesScreen

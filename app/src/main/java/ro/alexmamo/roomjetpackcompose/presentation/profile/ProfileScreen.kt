@@ -13,10 +13,13 @@ import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.components.ApiUserSection
 import ro.alexmamo.roomjetpackcompose.presentation.profile.components.DBUserSection
+import androidx.navigation.NavHostController
 
 @Composable
-fun ProfileScreen(viewModel: UserViewModel = viewModel()) {
-
+fun ProfileScreen(
+    navController: NavHostController,
+    viewModel: UserViewModel = viewModel()
+) {
     BaseScreen(
         title = "",
         centerContent = true,
@@ -30,7 +33,7 @@ fun ProfileScreen(viewModel: UserViewModel = viewModel()) {
             Text(stringResource(R.string.db_users))
             DBUserSection()
         },
-        bottomBar = { BottomNavigationBar() }
+        bottomBar = { BottomNavigationBar(navController) }
     )
 
 }
