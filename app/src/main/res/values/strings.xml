@@ -76,4 +76,13 @@
     <string name="privacy_policy">Privacy Policy.</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="log_in_2">Log in</string>
+    <string name="hi_welcome_back">Hi, Welcome Back</string>
+    <string name="see_all">See all</string>
+    <string name="revenue_last_week">Revenue Last Week</string>
+    <string name="_4_000_00">$4.000.00</string>
+    <string name="food_last_week">Food Last Week</string>
+    <string name="_100_00">-$100.00</string>
+    <string name="account_balance">Account Balance</string>
+    <string name="transactions">Transactions</string>
+    <string name="october">October</string>
 </resources>

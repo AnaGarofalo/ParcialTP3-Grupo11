@@ -26,9 +26,9 @@ fun ButtonCategoriesMenuPrimaryAndSecondary(
 
     Box(
         modifier = Modifier
-            .width(105.dp)
-            .height(98.dp)
-            .clip(RoundedCornerShape(26.dp))
+            .width(57.dp)
+            .height(53.dp)
+            .clip(RoundedCornerShape(22.dp))
             .background(backgroundColor)
             .clickable { onClick() },
         contentAlignment = Alignment.Center
@@ -37,7 +37,7 @@ fun ButtonCategoriesMenuPrimaryAndSecondary(
             painter = painterResource(id = iconRes),
             contentDescription = null,
             tint = iconTint,
-            modifier = Modifier.size(45.dp)
+            modifier = Modifier.size(30.dp)
         )
     }
 }

@@ -29,13 +29,13 @@ fun MenuSwitchOnOff(
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .background(color = MaterialTheme.colorScheme.surface, RoundedCornerShape(22.dp))
+            .background(color = MaterialTheme.colorScheme.onPrimaryFixed, RoundedCornerShape(22.dp))
             .padding(horizontal = 8.dp, vertical = 6.dp)
     ) {
         options.forEachIndexed { index, label ->
             val isSelected = index == selectedIndex
             val backgroundColor = if (isSelected) CaribbeanGreen else
-                MaterialTheme.colorScheme.surface
+                MaterialTheme.colorScheme.onPrimaryFixed
             val textColor = if (isSelected) MaterialTheme.colorScheme.onPrimary else
                 MaterialTheme.colorScheme.onSecondary
 
