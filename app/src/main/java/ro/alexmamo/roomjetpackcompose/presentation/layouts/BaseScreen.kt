@@ -70,6 +70,7 @@ fun BaseScreen(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .background(androidx.compose.ui.graphics.Color(0xFF00C9A7)) // Fondo verde para el header
                         .padding(
                             horizontal = Dimens.paddingLarge,
                             vertical = Dimens.paddingSmall
