@@ -1,4 +1,4 @@
-package ro.alexmamo.roomjetpackcompose.presentation.home
+package ro.alexmamo.roomjetpackcompose.presentation.transaction
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
@@ -8,38 +8,32 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.TransactionList
+import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 
 @Composable
-fun HomeScreen(
+fun TransactionScreen(
     walletViewModel: WalletViewModel = viewModel()
 ) {
-
+    // Llama solo una vez cuando entra a la pantalla
     LaunchedEffect(Unit) {
         walletViewModel.get()
     }
 
-
-    var selectedPeriod by remember { mutableStateOf(2) } // 0=Daily, 1=Weekly, 2=Monthly
-
     BaseScreen(
-        title = stringResource(R.string.hi_welcome_back),
+        title = stringResource(R.string.transactions),
         content = { paddingValues ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .offset(y = (-20).dp) //
             ) {
 
-                Spacer(modifier = Modifier.height(24.dp))
-
+                // Lista de transacciones (usa los datos del ViewModel)
                 TransactionList(
-                    title = "", // Aca puede ir titulo o no
+                    title = stringResource(R.string.october),
                     showSeeAll = false,
-                    showSummaryCard = true,
-                    showPeriodSwitch = true,
-                    periodOptions = listOf("Daily", "Weekly", "Monthly"), // Aca poner lo qu uno quiera mostrar
+                    showSummaryCard = false,
                     walletViewModel = walletViewModel,
                     topPadding = 0.dp
                 )
