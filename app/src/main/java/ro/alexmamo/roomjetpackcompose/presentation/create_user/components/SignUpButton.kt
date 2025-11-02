@@ -22,14 +22,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BaseAlertDialog
 import ro.alexmamo.roomjetpackcompose.components.ButtonsGreen
+import ro.alexmamo.roomjetpackcompose.domain.model.DBUser
 import ro.alexmamo.roomjetpackcompose.navigation.HomeScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
+import ro.alexmamo.roomjetpackcompose.presentation.profile.UserListViewModel
 
 @Composable
 fun SignUpButton(
@@ -41,13 +44,14 @@ fun SignUpButton(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     var errorMessage by remember { mutableStateOf("") }
-
+    val dbViewModel: UserListViewModel = hiltViewModel()
 
     when (uiState) {
         is CreateUserViewModel.UiState.Success -> {
             val user = (uiState as CreateUserViewModel.UiState.Success).user
             LaunchedEffect(Unit) {
                navController.navigate(HomeScreen)
+                dbViewModel.insertUser(DBUser(0, email, password))
             }
         }
         is CreateUserViewModel.UiState.Error -> {
