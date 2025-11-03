@@ -55,10 +55,6 @@ fun NavGraph(
         composable<OnboardingScreen> {
             OnboardingScreen(onFinished = { navController.navigate(CreateUserScreen) })
         }
-
-        composable<UserScreen> { // Profile
-            ProfileScreen(userViewModel)
-        }
         
         composable<ProfileScreen> { // Profile
             ProfileScreen(navController = navController, viewModel = userViewModel)
