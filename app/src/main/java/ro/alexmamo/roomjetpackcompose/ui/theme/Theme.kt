@@ -20,12 +20,14 @@ private val DarkColorScheme = darkColorScheme(
     inverseSurface = Honeydew,
     onSurface = Honeydew,
     surfaceBright = CaribbeanGreen,
+    inverseOnSurface = CaribbeanGreen,
     secondary = Honeydew,
     tertiary = DarkGreen,
     onPrimaryFixed = Cyprus,
     outline = LightGreen,
     tertiaryContainer = OceanBlue,
-    onSurfaceVariant = VividBlue
+    onSurfaceVariant = VividBlue,
+    tertiaryFixed = CaribbeanGreen,
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -36,6 +38,7 @@ private val LightColorScheme = lightColorScheme(
     onSecondary = Void,
     onTertiary = FenceGreen, // usado para la mayoría de los textos
     surfaceBright = OceanBlue,
+    inverseOnSurface = VividBlue,
     inverseSurface = Cyprus,
     onSurface = CaribbeanGreen,
     secondary = FenceGreen,
@@ -43,7 +46,8 @@ private val LightColorScheme = lightColorScheme(
     onPrimaryFixed = LightGreen,
     outline = CaribbeanGreen,
     tertiaryContainer = LightGreen,
-    onSurfaceVariant = OceanBlue
+    onSurfaceVariant = OceanBlue,
+    tertiaryFixed = Cyprus,
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,
