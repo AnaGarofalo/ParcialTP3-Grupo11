@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,8 +50,7 @@ fun ButtonsGreen(
         Text(
             text = text,
             color = textColor,
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Medium
+            style = MaterialTheme.typography.titleMedium
         )
     }
 }
