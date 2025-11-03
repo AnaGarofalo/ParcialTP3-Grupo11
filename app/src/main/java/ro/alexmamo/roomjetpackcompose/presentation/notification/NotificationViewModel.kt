@@ -39,7 +39,7 @@ class NotificationViewModel : ViewModel() {
                 titleRes = R.string.thisweekend_section_title,
                 items = listOf(
                     Item(R.drawable.arrow_down, R.string.notif_expense_title, R.string.notif_expense_message, R.string.notification_time_example),
-                    Item(R.drawable.transactions, R.string.notif_transactions_title, R.string.notif_transactions_message, R.string.notification_time_example),
+                    Item(R.drawable.dollar, R.string.notif_transactions_title, R.string.notif_transactions_message, R.string.notification_time_example),
                 )
             ),
          )

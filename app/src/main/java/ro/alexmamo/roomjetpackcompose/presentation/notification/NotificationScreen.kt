@@ -58,7 +58,7 @@ fun NotificationScreen(navController: NavHostController,
                         onActionIconButtonClick = { /* esto la verdad nose qe haria porque ya estamos en notif */ },
                         withCircle = true,
                         circleSize = 30.dp,
-                        circleColor = MaterialTheme.colorScheme.surface,
+                        circleColor = MaterialTheme.colorScheme.tertiaryContainer,
                         content = { mod ->
                             androidx.compose.material.Icon(
                                 painter = painterResource(id = R.drawable.notification),
@@ -104,7 +104,7 @@ fun NotificationScreen(navController: NavHostController,
                                 .fillMaxWidth()
                                 .padding(horizontal = Dimens.paddingMedium)
                                 .height(2.dp)
-                                .background(color = MaterialTheme.colorScheme.background)
+                                .background(color = MaterialTheme.colorScheme.outline)
                         )
                     }
                 }
