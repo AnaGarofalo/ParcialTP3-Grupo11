@@ -19,6 +19,7 @@ import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.security_pin.SecurityPinScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchAScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchBScreen
+import ro.alexmamo.roomjetpackcompose.presentation.onboarding.OnboardingScreen
 import ro.alexmamo.roomjetpackcompose.presentation.categories.CategoriesScreen
 import ro.alexmamo.roomjetpackcompose.presentation.transaction.TransactionScreen
 
@@ -45,11 +46,16 @@ fun NavGraph(
         composable<LaunchBScreen> {
             LaunchBScreen(
                 onLogIn = { navController.navigate(LoginScreen) },
-                onSignUp = { navController.navigate(CreateUserScreen) },
+                onSignUp = { navController.navigate(OnboardingScreen) },
                 onForgotPassword = { navController.navigate(ForgotPasswordScreen) }
             )
         }
 
+        // Onboarding
+        composable<OnboardingScreen> {
+            OnboardingScreen(onFinished = { navController.navigate(CreateUserScreen) })
+        }
+        
         composable<ProfileScreen> { // Profile
             ProfileScreen(navController = navController, viewModel = userViewModel)
         }
