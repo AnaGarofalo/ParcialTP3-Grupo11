@@ -91,6 +91,8 @@ fun NavGraph(
         composable<AccountBalanceScreen> {
             AccountBalanceScreen(navController, onNavigateBack = {
                 navController.navigate(HomeScreen)
+            }, onNavigateToNotifications = {
+                navController.navigate(NotificationScreen)
             })
         }
         composable<TransactionScreen> {

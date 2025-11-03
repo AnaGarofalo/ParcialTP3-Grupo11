@@ -1,4 +1,4 @@
-package ro.alexmamo.roomjetpackcompose.components
+package ro.alexmamo.roomjetpackcompose.presentation.account_balance.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
