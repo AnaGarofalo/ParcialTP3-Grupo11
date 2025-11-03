@@ -2,6 +2,7 @@ package ro.alexmamo.roomjetpackcompose.presentation.onboarding.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -17,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.BorderStroke
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -116,7 +118,7 @@ fun OnboardingSlider(
         ) {
             Text(
                 text = "Next",
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.inverseSurface,
                 modifier = Modifier.clickable {
                     coroutineScope.launch {
@@ -143,13 +145,33 @@ fun OnboardingSlider(
             ) {
                 pages.forEachIndexed { index, _ ->
                     val isSelected = index == currentPage
-                    Box(
-                        modifier = Modifier
-                            .padding(6.dp)
-                            .size(if (isSelected) 10.dp else 8.dp)
-                            .clip(CircleShape)
-                            .background(if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f))
-                    ) {}
+                    if (isSelected) {
+                        // Selected: filled dot with onSurface
+                        Box(
+                            modifier = Modifier
+                                .padding(6.dp)
+                                .size(13.dp)
+                                .clip(CircleShape)
+                                .background(MaterialTheme.colorScheme.onSurface)
+                        ) {}
+                    } else {
+                        // Unselected: ring (border) with inverseSurface and inner fill surface
+                        Box(
+                            modifier = Modifier
+                                .padding(6.dp)
+                                .size(12.dp)
+                                .clip(CircleShape)
+                                .border(BorderStroke(1.dp, MaterialTheme.colorScheme.inverseSurface), CircleShape),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(8.dp)
+                                    .clip(CircleShape)
+                                    .background(MaterialTheme.colorScheme.surface)
+                            ) {}
+                        }
+                    }
                 }
             }
         }
