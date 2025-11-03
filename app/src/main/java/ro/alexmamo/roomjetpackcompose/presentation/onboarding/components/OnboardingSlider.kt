@@ -19,9 +19,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.ui.res.stringResource
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.presentation.onboarding.OnboardingPage as PageAlias
 import ro.alexmamo.roomjetpackcompose.ui.theme.Dimens
 import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
@@ -117,7 +119,7 @@ fun OnboardingSlider(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Next",
+                text = stringResource(id = R.string.next_text),
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.inverseSurface,
                 modifier = Modifier.clickable {

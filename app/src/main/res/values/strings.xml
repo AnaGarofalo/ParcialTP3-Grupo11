@@ -81,6 +81,7 @@
     <!-- Onboarding titles -->
     <string name="onboarding_title_a">Welcome To\nExpense Manager</string>
     <string name="onboarding_title_b">¿Are You Ready To\nTake Control Of\nYour Finances?</string>
+    <string name="next_text">Next</string>
     <string name="hi_welcome_back">Hi, Welcome Back</string>
     <string name="see_all">See all</string>
     <string name="revenue_last_week">Revenue Last Week</string>
