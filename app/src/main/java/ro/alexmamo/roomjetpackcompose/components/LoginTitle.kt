@@ -20,7 +20,8 @@ fun LoginTitle(text: String) {
         Text(
             text = text,
             style = MaterialTheme.typography.titleLarge.copy(
-                fontSize = 30.sp
+                fontSize = 30.sp,
+                color = MaterialTheme.colorScheme.onTertiary
             )
         )
     }
