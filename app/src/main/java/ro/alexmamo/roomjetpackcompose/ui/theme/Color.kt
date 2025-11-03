@@ -19,3 +19,5 @@ val LightBlue = Color(0xFF6DB6FE)
 val VividBlue = Color(0xFF3299FF)
 
 var OceanBlue = Color(0xFF0068FF)
+
+var DarkGreen = Color(0xFF093030) // Lo agregue porque en Figma no estaba

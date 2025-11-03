@@ -81,4 +81,33 @@
     <!-- Onboarding titles -->
     <string name="onboarding_title_a">Welcome To\nExpense Manager</string>
     <string name="onboarding_title_b">¿Are You Ready To\nTake Control Of\nYour Finances?</string>
+    <string name="hi_welcome_back">Hi, Welcome Back</string>
+    <string name="see_all">See all</string>
+    <string name="revenue_last_week">Revenue Last Week</string>
+    <string name="_4_000_00">$4.000.00</string>
+    <string name="food_last_week">Food Last Week</string>
+    <string name="_100_00">-$100.00</string>
+    <string name="account_balance">Account Balance</string>
+    <string name="transactions">Transactions</string>
+    <string name="october">October</string>
+    <string name="reset_password">Reset password?</string>
+    <string name="lorem_ipsum_dolor">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="next_step">Next Step</string>
+    <string name="security_pin">Security Pin</string>
+    <string name="enter_security_pin">Enter Security Pin</string>
+    <string name="accept">Accept</string>
+    <string name="send_again">Send Again</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="password_has_been_changed_successfully">Password Has been Changed successfully</string>
+    <string name="api_user">Api User</string>
+    <string name="db_users">DB Users</string>
+    <string name="usuario">Usuario: %1$s %2$s</string>
+    <string name="ciudad">Ciudad: %1$s</string>
+    <string name="error">Error: %1$s</string>
+    <string name="profile">Profile</string>
+    <string name="esperando_acci_n">Esperando acción…</string>
+    <string name="no_hay_usuarios_agregados">No hay usuarios agregados, para crear un usuario, completar formulario de Create Account</string>
 </resources>

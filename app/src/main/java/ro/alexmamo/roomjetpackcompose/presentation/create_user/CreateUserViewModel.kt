@@ -8,7 +8,6 @@ import kotlinx.coroutines.launch
 import ro.alexmamo.roomjetpackcompose.infraestructure.auth.Auth
 import ro.alexmamo.roomjetpackcompose.infraestructure.auth.AuthImpl
 import ro.alexmamo.roomjetpackcompose.infraestructure.auth.CreateUserRequest
-import ro.alexmamo.roomjetpackcompose.infraestructure.auth.Token
 import ro.alexmamo.roomjetpackcompose.infraestructure.user.User
 
 

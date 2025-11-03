@@ -36,14 +36,16 @@ fun LoginForm(
     BaseInput(
         label = stringResource(R.string.username_or_email),
         placeholder = stringResource(R.string.example_example_com),
-        externalState = email
+        externalState = email,
+        modifier = Modifier.padding(16.dp)
     )
 
     BaseInput(
         label = stringResource(R.string.password),
         placeholder = stringResource(R.string.password_placeholder),
         externalState = password,
-        isPassword = true
+        isPassword = true,
+        modifier = Modifier.padding(16.dp)
     )
 
     Column(
@@ -51,7 +53,7 @@ fun LoginForm(
             .fillMaxWidth()
             .padding(top = 70.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp) // gap de 16dp
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         LogInButton(
             navController,

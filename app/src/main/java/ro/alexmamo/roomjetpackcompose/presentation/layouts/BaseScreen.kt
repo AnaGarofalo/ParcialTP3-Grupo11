@@ -89,7 +89,7 @@ fun BaseScreen(
                             topEnd = 56.dp
                         )
                     )
-                    .background(MaterialTheme.colorScheme.surface)
+                    .background(MaterialTheme.colorScheme.tertiary)
                     .padding(Dimens.paddingLarge)
             ) {
                 if (centerContent) {

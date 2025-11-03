@@ -4,8 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
-import ro.alexmamo.roomjetpackcompose.domain.model.toTodoDetails
+import ro.alexmamo.roomjetpackcompose.presentation.account_balance.AccountBalanceScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.forgot_password.ForgotPasswordScreen
@@ -13,13 +12,16 @@ import ro.alexmamo.roomjetpackcompose.presentation.home.HomeScreen
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
+import ro.alexmamo.roomjetpackcompose.presentation.new_password.NewPasswordScreen
+import ro.alexmamo.roomjetpackcompose.presentation.password_changed.PasswordChangedScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
-import ro.alexmamo.roomjetpackcompose.presentation.todo_details.TodoDetailsScreen
-import ro.alexmamo.roomjetpackcompose.presentation.todo_list.TodoListScreen
+import ro.alexmamo.roomjetpackcompose.presentation.security_pin.SecurityPinScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchAScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchBScreen
 import ro.alexmamo.roomjetpackcompose.presentation.onboarding.OnboardingScreen
+import ro.alexmamo.roomjetpackcompose.presentation.categories.CategoriesScreen
+import ro.alexmamo.roomjetpackcompose.presentation.transaction.TransactionScreen
 
 @Composable
 fun NavGraph(
@@ -57,8 +59,12 @@ fun NavGraph(
         composable<UserScreen> { // Profile
             ProfileScreen(userViewModel)
         }
+        
+        composable<ProfileScreen> { // Profile
+            ProfileScreen(navController = navController, viewModel = userViewModel)
+        }
         composable<HomeScreen> { // Homepage
-            HomeScreen(walletViewModel)
+            HomeScreen(navController = navController, walletViewModel = walletViewModel)
         }
         composable<LoginScreen> { // Login
             LoginScreen(loginViewModel, navController)
@@ -69,27 +75,23 @@ fun NavGraph(
         composable<CreateUserScreen> { // Sign up
             CreateUserScreen(createUserViewModel, navController)
         }
-
-
-
-
-
-        // TO delete
-        composable<TodoListScreen> {
-            TodoListScreen(
-                navigateToTodoDetailsScreen = { todo ->
-                    val todoDetails = todo.toTodoDetails()
-                    navController.navigate(todoDetails)
-                }
-            )
+        composable<SecurityPinScreen> { // Enter Security Pin
+            SecurityPinScreen(navController)
         }
-        composable<TodoDetails> { entry ->
-            val todoDetails = entry.toRoute<TodoDetails>()
-            val todo = todoDetails.toTodo()
-            TodoDetailsScreen (
-                todo = todo,
-                navigateBack = navController::navigateUp
-            )
+        composable<NewPasswordScreen> { // New Password Screen
+            NewPasswordScreen(navController)
+        }
+        composable<PasswordChangedScreen> {
+            PasswordChangedScreen(navController)
+        }
+        composable<AccountBalanceScreen> {
+            AccountBalanceScreen(navController)
+        }
+        composable<TransactionScreen> {
+            TransactionScreen(navController)
+        }
+        composable<CategoriesScreen> {
+            CategoriesScreen(navController)
         }
     }
 }

@@ -11,9 +11,9 @@ import kotlinx.coroutines.launch
 const val TAG = "AppTag"
 
 //const val TAG = "AppTag"
-const val TODO_TABLE = "todo_table"
-const val NAME_FIELD = "name"
-const val DESCRIPTION_FIELD = "description"
+const val USER_TABLE = "user_table"
+const val USERNAME_FIELD = "username"
+const val EMAIL_FIELD = "email"
 
 fun logMessage(
     message: String

@@ -1,26 +1,20 @@
 package ro.alexmamo.roomjetpackcompose.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.navigation.*
 
 @Composable
-fun BottomNavigationBar() {
-    var selectedIndex by remember { mutableStateOf(0) }
-
+fun BottomNavigationBar(navController: NavController) {
     val icons = listOf(
         R.drawable.home,
         R.drawable.analysis,
@@ -29,15 +23,27 @@ fun BottomNavigationBar() {
         R.drawable.profile
     )
 
+    // Rutas o destinos asociados a cada ícono
+    val destinations = listOf(
+        HomeScreen::class.qualifiedName,
+        AccountBalanceScreen::class.qualifiedName,
+        TransactionScreen::class.qualifiedName,
+        CategoriesScreen::class.qualifiedName,
+        ProfileScreen::class.qualifiedName
+    )
+
+    val currentDestination by navController.currentBackStackEntryAsState()
+    val currentRoute = currentDestination?.destination?.route
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
             .background(
-                color = MaterialTheme.colorScheme.surface, // o background, según prefieras
+                color = MaterialTheme.colorScheme.onPrimaryFixed,
                 shape = RoundedCornerShape(topStart = 70.dp, topEnd = 70.dp)
             ),
-            contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(5.dp, Alignment.CenterHorizontally),
@@ -45,14 +51,25 @@ fun BottomNavigationBar() {
             modifier = Modifier.fillMaxWidth()
         ) {
             icons.forEachIndexed { index, icon ->
+                val isSelected = currentRoute == destinations[index]
+
                 NavigationMenuButton(
                     iconRes = icon,
-                    selected = index == selectedIndex,
-                    onClick = { selectedIndex = index }
+                    selected = isSelected,
+                    onClick = {
+                        val destination = destinations[index]
+                        if (destination != null) {
+                            navController.navigate(destination) {
+                                launchSingleTop = true
+                                restoreState = true
+                                popUpTo(navController.graph.startDestinationId) {
+                                    saveState = true
+                                }
+                            }
+                        }
+                    }
                 )
             }
         }
     }
 }
-
-

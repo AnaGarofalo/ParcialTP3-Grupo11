@@ -2,6 +2,7 @@ package ro.alexmamo.roomjetpackcompose.presentation.create_user.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Text
@@ -18,12 +19,14 @@ import ro.alexmamo.roomjetpackcompose.navigation.LoginScreen
 @Composable
 fun SignInMessage(navController: NavHostController) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(2.dp),
-//        modifier = Modifier.padding(bottom = 64.dp)
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center,
     ) {
         Text(text = stringResource(R.string.already_have_an_account),
             style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onTertiary)
+            color = MaterialTheme.colorScheme.onTertiary,
+            modifier = Modifier.padding(end = 2.dp)
+        )
 
         ClickableText (
             text = AnnotatedString(stringResource(R.string.log_in_2)),
