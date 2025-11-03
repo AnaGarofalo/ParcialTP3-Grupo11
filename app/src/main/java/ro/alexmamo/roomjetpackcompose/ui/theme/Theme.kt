@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     background = FenceGreen,
+    onBackground = FenceGreen,
     surface = Cyprus,
     onPrimary = Void,
     onSecondary = Honeydew,
@@ -22,11 +23,14 @@ private val DarkColorScheme = darkColorScheme(
     secondary = Honeydew,
     tertiary = DarkGreen,
     onPrimaryFixed = Cyprus,
+    outline = LightGreen,
+    tertiaryContainer = OceanBlue,
     onSurfaceVariant = VividBlue
 )
 
 private val LightColorScheme = lightColorScheme(
     background = CaribbeanGreen,
+    onBackground = Honeydew,
     surface = Honeydew,
     onPrimary = Void,
     onSecondary = Void,
@@ -37,7 +41,9 @@ private val LightColorScheme = lightColorScheme(
     secondary = FenceGreen,
     tertiary = Honeydew,
     onPrimaryFixed = LightGreen,
-    onSurfaceVariant = OceanBlue,
+    outline = CaribbeanGreen,
+    tertiaryContainer = LightGreen,
+    onSurfaceVariant = OceanBlue
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,

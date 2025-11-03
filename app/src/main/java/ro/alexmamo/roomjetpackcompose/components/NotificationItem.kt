@@ -1,7 +1,6 @@
 package ro.alexmamo.roomjetpackcompose.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -21,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.Dimens
 import ro.alexmamo.roomjetpackcompose.ui.theme.Cyprus
+import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 
 @Composable
 fun NotificationItem(
@@ -28,19 +28,19 @@ fun NotificationItem(
     titleRes: Int,
     messageRes: Int,
     timeRes: Int,
+    chipMessageRes: Int? = null,
     modifier: Modifier = Modifier
 ) {
     val title = stringResource(id = titleRes)
     val message = stringResource(id = messageRes)
     val time = stringResource(id = timeRes)
+
     Row(
         modifier = modifier
             .fillMaxWidth()
             .padding(vertical = Dimens.paddingSmall),
-        // alineamos al top para que icon coincida con la línea del título
         verticalAlignment = Alignment.Top
     ) {
-        // usar surface como fondo del contenedor del icon para mejor contraste
         Box(
             modifier = Modifier
                 .size(44.dp)
@@ -63,8 +63,11 @@ fun NotificationItem(
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.titleMedium.copy(fontSize = 15.sp, fontWeight = FontWeight.Medium),
-                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Medium
+                ),
+                color = MaterialTheme.colorScheme.onTertiary,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
@@ -72,15 +75,30 @@ fun NotificationItem(
             Text(
                 text = message,
                 style = MaterialTheme.typography.bodySmall.copy(fontSize = 14.sp),
-                color = MaterialTheme.colorScheme.onSecondary,
+                color = MaterialTheme.colorScheme.onTertiary,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
             )
+
+            chipMessageRes?.let { resId ->
+                Spacer(modifier = Modifier.height(6.dp))
+                Text(
+                    text = stringResource(id = resId),
+                    style = MaterialTheme.typography.bodySmall.copy(
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.SemiBold
+                    ),
+                    color = MaterialTheme.colorScheme.surfaceBright,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = time,
                 style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.primary,
+                color = OceanBlue,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.End
             )

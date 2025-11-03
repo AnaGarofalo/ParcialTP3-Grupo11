@@ -32,8 +32,7 @@ import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
 
 @Composable
 fun NotificationScreen(navController: NavHostController,
-                       vm: NotificationViewModel = viewModel(),
-                       onNavigateBack: () -> Unit = {}) {
+                       vm: NotificationViewModel = viewModel()) {
     BaseScreen(
         title = null,
         topBar = {
@@ -41,7 +40,7 @@ fun NotificationScreen(navController: NavHostController,
                 title = stringResource(R.string.notification_title),
                 leftAction = {
                     ActionIconButton(
-                        onActionIconButtonClick = onNavigateBack,
+                        onActionIconButtonClick = { navController.navigateUp() },
                         withCircle = false,
                         content = { mod ->
                             androidx.compose.material.Icon(
@@ -58,7 +57,7 @@ fun NotificationScreen(navController: NavHostController,
                         onActionIconButtonClick = { /* esto la verdad nose qe haria porque ya estamos en notif */ },
                         withCircle = true,
                         circleSize = 30.dp,
-                        circleColor = MaterialTheme.colorScheme.surface,
+                        circleColor = MaterialTheme.colorScheme.tertiaryContainer,
                         content = { mod ->
                             androidx.compose.material.Icon(
                                 painter = painterResource(id = R.drawable.notification),
@@ -96,7 +95,8 @@ fun NotificationScreen(navController: NavHostController,
                             iconRes = item.iconRes,
                             titleRes = item.titleRes,
                             messageRes = item.messageRes,
-                            timeRes = item.timeRes
+                            timeRes = item.timeRes,
+                            chipMessageRes = item.chipMessageRes
                         )
 
                         Box(
@@ -104,7 +104,7 @@ fun NotificationScreen(navController: NavHostController,
                                 .fillMaxWidth()
                                 .padding(horizontal = Dimens.paddingMedium)
                                 .height(2.dp)
-                                .background(color = MaterialTheme.colorScheme.background)
+                                .background(color = MaterialTheme.colorScheme.outline)
                         )
                     }
                 }
