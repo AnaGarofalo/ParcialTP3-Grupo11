@@ -39,12 +39,6 @@ object LaunchBScreen
 @Serializable
 object OnboardingScreen
 
-@Serializable
-data class TodoDetails(
-    val id: Int,
-    val name: String,
-    val description: String
-)
 object AccountBalanceScreen
 
 @Serializable
