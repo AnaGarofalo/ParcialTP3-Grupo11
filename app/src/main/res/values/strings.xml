@@ -111,4 +111,5 @@
     <string name="profile">Profile</string>
     <string name="esperando_acci_n">Esperando acción…</string>
     <string name="no_hay_usuarios_agregados">No hay usuarios agregados, para crear un usuario, completar formulario de Create Account</string>
+    <string name="categories">Categories</string>
 </resources>
