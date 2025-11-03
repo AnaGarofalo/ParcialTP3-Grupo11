@@ -2,7 +2,7 @@
     <!--App-->
     <string name="app_name">RoomJetpackCompose</string>
     <string name="finwise">FinWise</string>
-    <string name="lorem_ipsum">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. "</string>
+    <string name="lorem_ipsum">"Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed do eiusmod. "</string>
     <string name="db_name">todos_db</string>
     <!--Screen Names-->
     <string name="todo_list_screen_name">"Todo List"</string>
