@@ -16,6 +16,9 @@ object CreateUserScreen
 object HomeScreen
 
 @Serializable
+object NotificationScreen
+
+@Serializable
 object UserScreen
 
 @Serializable

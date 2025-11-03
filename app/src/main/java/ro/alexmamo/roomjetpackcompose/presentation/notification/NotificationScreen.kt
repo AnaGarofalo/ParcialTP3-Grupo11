@@ -32,7 +32,8 @@ import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
 
 @Composable
 fun NotificationScreen(navController: NavHostController,
-                       vm: NotificationViewModel = viewModel()) {
+                       vm: NotificationViewModel = viewModel(),
+                       onNavigateBack: () -> Unit = {}) {
     BaseScreen(
         title = null,
         topBar = {
@@ -40,7 +41,7 @@ fun NotificationScreen(navController: NavHostController,
                 title = stringResource(R.string.notification_title),
                 leftAction = {
                     ActionIconButton(
-                        onActionIconButtonClick = { /* para atras */ },
+                        onActionIconButtonClick = onNavigateBack,
                         withCircle = false,
                         content = { mod ->
                             androidx.compose.material.Icon(

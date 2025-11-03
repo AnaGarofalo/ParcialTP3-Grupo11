@@ -14,6 +14,7 @@ import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.new_password.NewPasswordScreen
 import ro.alexmamo.roomjetpackcompose.presentation.password_changed.PasswordChangedScreen
+import ro.alexmamo.roomjetpackcompose.presentation.notification.NotificationScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.security_pin.SecurityPinScreen
@@ -55,13 +56,20 @@ fun NavGraph(
         composable<OnboardingScreen> {
             OnboardingScreen(onFinished = { navController.navigate(CreateUserScreen) })
         }
-        
+
         composable<ProfileScreen> { // Profile
             ProfileScreen(navController = navController, viewModel = userViewModel)
         }
         composable<HomeScreen> { // Homepage
-            HomeScreen(navController = navController, walletViewModel = walletViewModel)
+            HomeScreen(navController = navController, walletViewModel = walletViewModel, onNavigateToNotifications = {
+                navController.navigate(NotificationScreen)
+            })
         }
+
+        composable<NotificationScreen> { // Notifications
+            NotificationScreen(onNavigateBack = navController::popBackStack, navController = navController)
+        }
+
         composable<LoginScreen> { // Login
             LoginScreen(loginViewModel, navController)
         }
@@ -81,7 +89,11 @@ fun NavGraph(
             PasswordChangedScreen(navController)
         }
         composable<AccountBalanceScreen> {
-            AccountBalanceScreen(navController)
+            AccountBalanceScreen(navController, onNavigateBack = {
+                navController.navigate(HomeScreen)
+            }, onNavigateToNotifications = {
+                navController.navigate(NotificationScreen)
+            })
         }
         composable<TransactionScreen> {
             TransactionScreen(navController)

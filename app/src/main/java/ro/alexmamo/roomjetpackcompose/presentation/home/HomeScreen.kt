@@ -1,35 +1,43 @@
 package ro.alexmamo.roomjetpackcompose.presentation.home
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
+import ro.alexmamo.roomjetpackcompose.components.HomeHeader
 import ro.alexmamo.roomjetpackcompose.components.TransactionList
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.Modifier
 
 @Composable
 fun HomeScreen(
     navController: NavHostController,
-    walletViewModel: WalletViewModel = viewModel()
+    walletViewModel: WalletViewModel = viewModel(),
+    onNavigateToNotifications: () -> Unit = {}
 ) {
-
     LaunchedEffect(Unit) {
         walletViewModel.get()
     }
 
-
-    var selectedPeriod by remember { mutableStateOf(2) } // 0=Daily, 1=Weekly, 2=Monthly
-
     BaseScreen(
-        title = stringResource(R.string.hi_welcome_back),
         bottomBar = { BottomNavigationBar(navController = navController) },
+        header = {
+            HomeHeader(
+                totalBalance = 7783.00,
+                totalExpense = 1187.40,
+                expenseLimit = 20000.00,
+                onNotificationClick = onNavigateToNotifications
+            )
+        },
         content = { paddingValues ->
-            Column(
+            Column (
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
@@ -55,3 +63,4 @@ fun HomeScreen(
         }
     )
 }
+

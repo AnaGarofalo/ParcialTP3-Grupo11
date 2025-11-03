@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ro.alexmamo.roomjetpackcompose.navigation.NavGraph
-import ro.alexmamo.roomjetpackcompose.presentation.notification.NotificationScreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.CustomTheme
 
 @AndroidEntryPoint

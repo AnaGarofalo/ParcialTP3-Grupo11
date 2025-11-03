@@ -83,6 +83,10 @@
     <string name="onboarding_title_b">¿Are You Ready To\nTake Control Of\nYour Finances?</string>
     <string name="next_text">Next</string>
     <string name="hi_welcome_back">Hi, Welcome Back</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="total_expense">Total Expense</string>
+    <string name="expense_percentage">%d%% Of Your Expenses, Looks Good.</string>
     <string name="see_all">See all</string>
     <string name="revenue_last_week">Revenue Last Week</string>
     <string name="_4_000_00">$4.000.00</string>
