@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     background = FenceGreen,
+    onBackground = FenceGreen,
     surface = Cyprus,
     onPrimary = Void,
     onSecondary = Honeydew,
@@ -26,6 +27,7 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     background = CaribbeanGreen,
+    onBackground = Honeydew,
     surface = Honeydew,
     onPrimary = Void,
     onSecondary = Void,
