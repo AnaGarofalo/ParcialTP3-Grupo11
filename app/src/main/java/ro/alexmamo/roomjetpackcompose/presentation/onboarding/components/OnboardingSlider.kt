@@ -148,7 +148,6 @@ fun OnboardingSlider(
                 pages.forEachIndexed { index, _ ->
                     val isSelected = index == currentPage
                     if (isSelected) {
-                        // Selected: filled dot with onSurface
                         Box(
                             modifier = Modifier
                                 .padding(6.dp)
@@ -157,7 +156,6 @@ fun OnboardingSlider(
                                 .background(MaterialTheme.colorScheme.onSurface)
                         ) {}
                     } else {
-                        // Unselected: ring (border) with inverseSurface and inner fill surface
                         Box(
                             modifier = Modifier
                                 .padding(6.dp)
