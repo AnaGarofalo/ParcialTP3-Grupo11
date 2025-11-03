@@ -39,6 +39,7 @@ object LaunchBScreen
 @Serializable
 object OnboardingScreen
 
+@Serializable
 object AccountBalanceScreen
 
 @Serializable
