@@ -67,7 +67,7 @@ fun NavGraph(
         }
 
         composable<NotificationScreen> { // Notifications
-            NotificationScreen(onNavigateBack = navController::navigateUp, navController = navController)
+            NotificationScreen(navController)
         }
 
         composable<LoginScreen> { // Login
