@@ -79,6 +79,6 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="log_in_2">Log in</string>
     <!-- Onboarding titles -->
-    <string name="onboarding_title_a">Welcome To Expense Manager</string>
-    <string name="onboarding_title_b">¿Are You Ready To Take Control Of Your Finances?</string>
+    <string name="onboarding_title_a">Welcome To\nExpense Manager</string>
+    <string name="onboarding_title_b">¿Are You Ready To\nTake Control Of\nYour Finances?</string>
 </resources>
