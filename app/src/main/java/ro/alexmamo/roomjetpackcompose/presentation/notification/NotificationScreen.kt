@@ -40,7 +40,7 @@ fun NotificationScreen(navController: NavHostController,
                 title = stringResource(R.string.notification_title),
                 leftAction = {
                     ActionIconButton(
-                        onActionIconButtonClick = { /* para atras */ },
+                        onActionIconButtonClick = { navController.navigateUp() },
                         withCircle = false,
                         content = { mod ->
                             androidx.compose.material.Icon(
