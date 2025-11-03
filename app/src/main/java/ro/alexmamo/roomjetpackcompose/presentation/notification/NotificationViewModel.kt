@@ -11,7 +11,8 @@ class NotificationViewModel : ViewModel() {
         val iconRes: Int,
         val titleRes: Int,
         val messageRes: Int,
-        val timeRes: Int
+        val timeRes: Int,
+        val chipMessageRes: Int? = null
     )
 
     data class Section(
@@ -31,7 +32,7 @@ class NotificationViewModel : ViewModel() {
              Section(
                 titleRes = R.string.yesterday_section_title,
                 items = listOf(
-                    Item(R.drawable.dollar, R.string.notif_transactions_title, R.string.notif_transactions_message, R.string.notification_time_example),
+                    Item(R.drawable.dollar, R.string.notif_transactions_title, R.string.notif_transactions_message, R.string.notification_time_example, chipMessageRes = R.string.notif_budget_message),
                     Item(R.drawable.notification, R.string.notif_reminder_title, R.string.notif_reminder_message, R.string.notification_time_example),
                 )
              ),
@@ -39,7 +40,7 @@ class NotificationViewModel : ViewModel() {
                 titleRes = R.string.thisweekend_section_title,
                 items = listOf(
                     Item(R.drawable.arrow_down, R.string.notif_expense_title, R.string.notif_expense_message, R.string.notification_time_example),
-                    Item(R.drawable.dollar, R.string.notif_transactions_title, R.string.notif_transactions_message, R.string.notification_time_example),
+                    Item(R.drawable.dollar, R.string.notif_transactions_title, R.string.notif_transactions_message, R.string.notification_time_example, chipMessageRes = R.string.notif_budget_message2),
                 )
             ),
          )

@@ -30,7 +30,9 @@
     <string name="notif_reminder_message">Set up your automatic savings to meet your savings goal...</string>
     <string name="notif_new_update_title">New Update</string>
     <string name="notif_transactions_title">Transactions</string>
-    <string name="notif_transactions_message">A new transaction has been registered\nGroceries | Pantry | -$100,00</string>
+    <string name="notif_transactions_message">A new transaction has been registered</string>
+    <string name="notif_budget_message">Groceries | pantry | -$100,00</string>
+    <string name="notif_budget_message2">Food |  Dinner  |  -$70,40</string>
     <string name="notif_expense_title">Expense record</string>
     <string name="notif_expense_message">We recommend that you be more attentive to your finances.</string>
     <string name="notification_time_example">17:00 - April 24</string>

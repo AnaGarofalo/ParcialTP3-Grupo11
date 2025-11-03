@@ -96,7 +96,8 @@ fun NotificationScreen(navController: NavHostController,
                             iconRes = item.iconRes,
                             titleRes = item.titleRes,
                             messageRes = item.messageRes,
-                            timeRes = item.timeRes
+                            timeRes = item.timeRes,
+                            chipMessageRes = item.chipMessageRes
                         )
 
                         Box(
