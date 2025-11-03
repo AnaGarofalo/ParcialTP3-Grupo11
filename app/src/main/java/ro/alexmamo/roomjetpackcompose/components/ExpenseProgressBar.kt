@@ -1,16 +1,19 @@
 package ro.alexmamo.roomjetpackcompose.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import ro.alexmamo.roomjetpackcompose.ui.theme.DarkGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
+import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.Locale
@@ -21,43 +24,51 @@ fun ExpenseProgressBar(
     expenseLimit: Double,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier) {
-        LinearProgressIndicator(
-            progress = { (expensePercentage / 100f).coerceIn(0f, 1f) },
+    // Formato con comas para miles
+    val symbols = DecimalFormatSymbols(Locale.US).apply {
+        groupingSeparator = ','
+        decimalSeparator = '.'
+    }
+    val formatter = DecimalFormat("#,##0.00", symbols)
+    val formattedLimit = formatter.format(expenseLimit)
+
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(32.dp)
+            .clip(RoundedCornerShape(20.dp))
+            .background(Void)
+    ) {
+        // Barra de progreso blanca
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(8.dp),
-            color = DarkGreen,
-            trackColor = Honeydew,
+                .fillMaxWidth((1 - expensePercentage / 100f).coerceIn(0f, 1f))
+                .fillMaxHeight()
+                .align(Alignment.CenterEnd)
+                .clip(RoundedCornerShape(20.dp))
+                .background(Honeydew)
         )
 
-        Spacer(modifier = Modifier.height(4.dp))
-
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 20.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "$expensePercentage%",
-                fontSize = 12.sp,
-                fontWeight = FontWeight.SemiBold,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Thin,
                 color = Honeydew
             )
 
-            // Formato con comas para miles
-            val symbols = DecimalFormatSymbols(Locale.US).apply {
-                groupingSeparator = ','
-                decimalSeparator = '.'
-            }
-            val formatter = DecimalFormat("#,##0.00", symbols)
-            val formattedLimit = formatter.format(expenseLimit)
-
             Text(
                 text = "\$$formattedLimit",
-                fontSize = 12.sp,
-                fontWeight = FontWeight.SemiBold,
-                color = Honeydew
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Thin,
+                fontStyle = FontStyle.Italic,
+                color = Void
             )
         }
     }

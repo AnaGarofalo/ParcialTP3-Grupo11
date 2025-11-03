@@ -21,8 +21,6 @@ fun AccountBalanceHeader(
     expenseLimit: Double,
     income: Double,
     expense: Double,
-    incomeIcon: Int,
-    expenseIcon: Int,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -34,23 +32,11 @@ fun AccountBalanceHeader(
             totalExpense = totalExpense,
             expenseLimit = expenseLimit,
             customPercentage = 30,
-            modifier = Modifier
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // Income y Expense Cards
-        IncomeExpenseCards(
+            modifier = Modifier,
             income = income,
-            expense = expense,
-            incomeIcon = incomeIcon,
-            expenseIcon = expenseIcon,
-            modifier = Modifier
+            expense = expense
         )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        }
     }
+}
 
 

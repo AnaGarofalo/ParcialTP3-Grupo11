@@ -7,13 +7,12 @@ import androidx.compose.ui.unit.dp
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 import ro.alexmamo.roomjetpackcompose.ui.theme.VividBlue
+import ro.alexmamo.roomjetpackcompose.R
 
 @Composable
 fun IncomeExpenseCards(
     income: Double,
     expense: Double,
-    incomeIcon: Int,
-    expenseIcon: Int,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -24,7 +23,7 @@ fun IncomeExpenseCards(
         IncomeExpenseCard(
             title = "Income",
             amount = income,
-            icon = incomeIcon,
+            icon = R.drawable.income,
             iconColor = CaribbeanGreen,
             amountColor = Void,
             modifier = Modifier.weight(1f)
@@ -34,7 +33,7 @@ fun IncomeExpenseCards(
         IncomeExpenseCard(
             title = "Expense",
             amount = expense,
-            icon = expenseIcon,
+            icon = R.drawable.expense,
             iconColor = VividBlue,
             amountColor = VividBlue,
             modifier = Modifier.weight(1f)

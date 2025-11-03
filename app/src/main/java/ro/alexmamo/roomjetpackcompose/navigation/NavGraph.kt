@@ -13,6 +13,7 @@ import ro.alexmamo.roomjetpackcompose.presentation.home.HomeScreen
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
+import ro.alexmamo.roomjetpackcompose.presentation.notification.NotificationScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.todo_details.TodoDetailsScreen
@@ -36,8 +37,18 @@ fun NavGraph(
             ProfileScreen(userViewModel)
         }
         composable<HomeScreen> { // Homepage
-            HomeScreen(walletViewModel)
+            HomeScreen(
+                walletViewModel = walletViewModel,
+                onNavigateToNotifications = {
+                    navController.navigate(NotificationScreen)
+                }
+            )
         }
+
+        composable<NotificationScreen> { // Notifications
+            NotificationScreen(onNavigateBack = navController::popBackStack)
+        }
+
         composable<LoginScreen> { // Login
             LoginScreen(loginViewModel, navController)
         }

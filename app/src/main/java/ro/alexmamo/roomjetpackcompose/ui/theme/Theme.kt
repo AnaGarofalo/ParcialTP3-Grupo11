@@ -20,7 +20,8 @@ private val DarkColorScheme = darkColorScheme(
     surfaceBright = LightGreen,
     secondary = Honeydew,
     tertiary = DarkGreen,
-    onPrimaryFixed = Cyprus
+    onPrimaryFixed = Cyprus,
+    onSurfaceVariant = VividBlue
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -32,7 +33,8 @@ private val LightColorScheme = lightColorScheme(
     surfaceBright = OceanBlue,
     secondary = FenceGreen,
     tertiary = Honeydew,
-    onPrimaryFixed = LightGreen
+    onPrimaryFixed = LightGreen,
+    onSurfaceVariant = OceanBlue,
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,

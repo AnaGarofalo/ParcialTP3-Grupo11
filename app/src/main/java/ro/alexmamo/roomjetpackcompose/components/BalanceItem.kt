@@ -2,6 +2,7 @@ package ro.alexmamo.roomjetpackcompose.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,7 +27,7 @@ fun BalanceItem(
 ) {
     Column(
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.Start,
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -34,20 +35,18 @@ fun BalanceItem(
         ) {
             Icon(
                 painter = painterResource(
-                    id = if (isPositive) R.drawable.arrow_up else R.drawable.arrow_down
+                    id = if (isPositive) R.drawable.income else R.drawable.expense
                 ),
                 contentDescription = null,
-                tint = Honeydew.copy(alpha = 0.8f),
+                tint = MaterialTheme.colorScheme.onSecondary,
                 modifier = Modifier.size(12.dp)
             )
             Text(
                 text = label,
                 fontSize = 12.sp,
-                color = Honeydew.copy(alpha = 0.8f)
+                color = MaterialTheme.colorScheme.onSecondary
             )
         }
-
-        Spacer(modifier = Modifier.height(4.dp))
 
         // Formato con comas para miles
         val symbols = DecimalFormatSymbols(Locale.US).apply {
@@ -61,7 +60,7 @@ fun BalanceItem(
             text = "${if (isPositive) "" else "-"}\$$formattedAmount",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            color = if (isPositive) Honeydew else VividBlue
+            color = if (isPositive) Honeydew else MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }

@@ -18,7 +18,9 @@ fun BalanceCard(
     totalExpense: Double,
     expenseLimit: Double,
     modifier: Modifier = Modifier,
-    customPercentage: Int? = null
+    customPercentage: Int? = null,
+    income: Double? = null,
+    expense: Double? = null
 ) {
     val expensePercentage = customPercentage ?: if (expenseLimit > 0) {
         ((totalExpense / expenseLimit) * 100).toInt()
@@ -44,6 +46,7 @@ fun BalanceCard(
                     amount = totalBalance,
                     isPositive = true,
                     modifier = Modifier.weight(1f)
+                        .padding(end = 24.dp)
                 )
 
                 // Separador vertical
@@ -51,7 +54,7 @@ fun BalanceCard(
                     modifier = Modifier
                         .width(1.dp)
                         .height(60.dp)
-                        .background(Honeydew.copy(alpha = 0.3f))
+                        .background(Honeydew)
                 )
 
                 BalanceItem(
@@ -59,6 +62,7 @@ fun BalanceCard(
                     amount = totalExpense,
                     isPositive = false,
                     modifier = Modifier.weight(1f)
+                        .padding(start = 24.dp)
                 )
             }
 
@@ -70,6 +74,16 @@ fun BalanceCard(
                 expenseLimit = expenseLimit
             )
 
+            if (income != null && expense != null) {
+                Spacer(modifier = Modifier.height(16.dp))
+
+                IncomeExpenseCards(
+                    income = income,
+                    expense = expense
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+            }
             Spacer(modifier = Modifier.height(8.dp))
 
             // Mensaje de estado (componente separado)

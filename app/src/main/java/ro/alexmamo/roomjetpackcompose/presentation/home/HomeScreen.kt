@@ -9,7 +9,8 @@ import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 
 @Composable
 fun HomeScreen(
-    walletViewModel: WalletViewModel = viewModel()
+    walletViewModel: WalletViewModel = viewModel(),
+    onNavigateToNotifications: () -> Unit = {}
 ) {
     LaunchedEffect(Unit) {
         walletViewModel.get()
@@ -21,7 +22,7 @@ fun HomeScreen(
                 totalBalance = 7783.00,
                 totalExpense = 1187.40,
                 expenseLimit = 20000.00,
-                onNotificationClick = { /* TODO: Navigate to notifications */ }
+                onNotificationClick = onNavigateToNotifications
             )
         },
         content = { paddingValues ->

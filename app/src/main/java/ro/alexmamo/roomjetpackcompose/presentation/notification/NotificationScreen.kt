@@ -30,7 +30,7 @@ import ro.alexmamo.roomjetpackcompose.ui.theme.Dimens
 import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
 
 @Composable
-fun NotificationScreen(vm: NotificationViewModel = viewModel()) {
+fun NotificationScreen(vm: NotificationViewModel = viewModel(), onNavigateBack: () -> Unit = {}) {
     BaseScreen(
         title = null,
         topBar = {
@@ -38,7 +38,7 @@ fun NotificationScreen(vm: NotificationViewModel = viewModel()) {
                 title = stringResource(R.string.notification_title),
                 leftAction = {
                     ActionIconButton(
-                        onActionIconButtonClick = { /* para atras */ },
+                        onActionIconButtonClick = onNavigateBack,
                         withCircle = false,
                         content = { mod ->
                             androidx.compose.material.Icon(
