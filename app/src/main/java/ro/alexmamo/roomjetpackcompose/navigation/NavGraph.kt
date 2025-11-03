@@ -67,7 +67,7 @@ fun NavGraph(
         }
 
         composable<NotificationScreen> { // Notifications
-            NotificationScreen(onNavigateBack = navController::popBackStack, navController = navController)
+            NotificationScreen(onNavigateBack = navController::navigateUp, navController = navController)
         }
 
         composable<LoginScreen> { // Login
@@ -89,14 +89,18 @@ fun NavGraph(
             PasswordChangedScreen(navController)
         }
         composable<AccountBalanceScreen> {
-            AccountBalanceScreen(navController, onNavigateBack = {
-                navController.navigate(HomeScreen)
-            }, onNavigateToNotifications = {
-                navController.navigate(NotificationScreen)
-            })
+            AccountBalanceScreen(navController, onNavigateBack = navController::navigateUp,
+                onNavigateToNotifications = {
+                    navController.navigate(NotificationScreen)
+                }
+            )
         }
         composable<TransactionScreen> {
-            TransactionScreen(navController)
+            TransactionScreen(navController, onNavigateBack = navController::navigateUp,
+                onNavigateToNotifications = {
+                    navController.navigate(NotificationScreen)
+                }
+            )
         }
         composable<CategoriesScreen> {
             CategoriesScreen(navController)
