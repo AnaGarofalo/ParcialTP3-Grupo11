@@ -7,7 +7,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
+import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
 import ro.alexmamo.roomjetpackcompose.components.AccountBalanceHeader
 import ro.alexmamo.roomjetpackcompose.components.AppTopBar
 import ro.alexmamo.roomjetpackcompose.components.NotificationButton
@@ -19,6 +22,7 @@ import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
 
 @Composable
 fun AccountBalanceScreen(
+    navController: NavHostController,
     walletViewModel: WalletViewModel = viewModel(),
     onNavigateBack: () -> Unit = {},
     onNavigateToNotifications: () -> Unit = {}
@@ -33,7 +37,7 @@ fun AccountBalanceScreen(
                 title = stringResource(R.string.account_balance),
                 leftAction = {
                     ActionIconButton(
-                        onActionIconButtonClick = { /* para atras */ },
+                        onActionIconButtonClick = onNavigateBack,
                         withCircle = false,
                         content = { mod ->
                             androidx.compose.material.Icon(
@@ -59,6 +63,7 @@ fun AccountBalanceScreen(
                 expense = 1187.40
             )
         },
+        bottomBar = { BottomNavigationBar(navController = navController) },
         content = { paddingValues ->
             Column(
                 modifier = Modifier

@@ -20,6 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.ActionIconButton
 import ro.alexmamo.roomjetpackcompose.components.AppTopBar
@@ -30,7 +31,9 @@ import ro.alexmamo.roomjetpackcompose.ui.theme.Dimens
 import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
 
 @Composable
-fun NotificationScreen(vm: NotificationViewModel = viewModel(), onNavigateBack: () -> Unit = {}) {
+fun NotificationScreen(navController: NavHostController,
+                       vm: NotificationViewModel = viewModel(),
+                       onNavigateBack: () -> Unit = {}) {
     BaseScreen(
         title = null,
         topBar = {
@@ -68,7 +71,7 @@ fun NotificationScreen(vm: NotificationViewModel = viewModel(), onNavigateBack: 
                 }
             )
         },
-        bottomBar = { BottomNavigationBar() },
+        bottomBar = { BottomNavigationBar(navController = navController) },
         content = { _ ->
             val sections by vm.sections.collectAsState()
 

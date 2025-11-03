@@ -1,7 +1,6 @@
 package ro.alexmamo.roomjetpackcompose.navigation
 
 import kotlinx.serialization.Serializable
-import ro.alexmamo.roomjetpackcompose.domain.model.Todo
 
 
 @Serializable
@@ -26,14 +25,31 @@ object UserScreen
 object ForgotPasswordScreen
 
 @Serializable
-data class TodoDetails(
-    val id: Int,
-    val name: String,
-    val description: String
-)
+object SecurityPinScreen
 
-fun TodoDetails.toTodo() = Todo(
-    id = this.id,
-    name = this.name,
-    description = this.description
-)
+@Serializable
+object NewPasswordScreen
+
+@Serializable
+object PasswordChangedScreen
+
+@Serializable
+object LaunchAScreen
+
+@Serializable
+object LaunchBScreen
+
+@Serializable
+object OnboardingScreen
+
+@Serializable
+object AccountBalanceScreen
+
+@Serializable
+object TransactionScreen
+
+@Serializable
+object ProfileScreen
+
+@Serializable
+object CategoriesScreen

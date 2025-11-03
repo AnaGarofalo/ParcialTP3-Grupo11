@@ -6,8 +6,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.Void
-import ro.alexmamo.roomjetpackcompose.ui.theme.VividBlue
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 
 @Composable
 fun IncomeExpenseCards(
@@ -34,8 +34,8 @@ fun IncomeExpenseCards(
             title = "Expense",
             amount = expense,
             icon = R.drawable.expense,
-            iconColor = VividBlue,
-            amountColor = VividBlue,
+            iconColor = OceanBlue,
+            amountColor = OceanBlue,
             modifier = Modifier.weight(1f)
         )
     }

@@ -11,7 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
 import ro.alexmamo.roomjetpackcompose.ui.theme.LightBlue
 import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 
@@ -19,16 +21,21 @@ import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 fun ButtonCategoriesMenuPrimaryAndSecondary(
     iconRes: Int,
     selected: Boolean,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    width: Dp = 57.dp,
+    height: Dp = 53.dp,
+    iconSize: Dp = 30.dp,
+    cornerRadius: Dp = 22.dp
 ) {
     val backgroundColor = if (selected) OceanBlue else LightBlue
-    val iconTint = Color.White
+    val iconTint = Honeydew
 
     Box(
         modifier = Modifier
-            .width(57.dp)
-            .height(53.dp)
-            .clip(RoundedCornerShape(22.dp))
+            .width(width)
+            .height(height)
+            .clip(RoundedCornerShape(cornerRadius))
             .background(backgroundColor)
             .clickable { onClick() },
         contentAlignment = Alignment.Center
@@ -37,7 +44,7 @@ fun ButtonCategoriesMenuPrimaryAndSecondary(
             painter = painterResource(id = iconRes),
             contentDescription = null,
             tint = iconTint,
-            modifier = Modifier.size(30.dp)
+            modifier = Modifier.size(iconSize)
         )
     }
 }

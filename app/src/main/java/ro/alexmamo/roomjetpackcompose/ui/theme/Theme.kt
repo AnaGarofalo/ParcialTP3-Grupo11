@@ -9,7 +9,6 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import ro.alexmamo.roomjetpackcompose.ui.theme.LightGreen
 
 private val DarkColorScheme = darkColorScheme(
     background = FenceGreen,
@@ -17,7 +16,9 @@ private val DarkColorScheme = darkColorScheme(
     onPrimary = Void,
     onSecondary = Honeydew,
     onTertiary = LightGreen, // usado para la mayoría de los textos
-    surfaceBright = LightGreen,
+    inverseSurface = Honeydew,
+    onSurface = Honeydew,
+    surfaceBright = CaribbeanGreen,
     secondary = Honeydew,
     tertiary = DarkGreen,
     onPrimaryFixed = Cyprus,
@@ -31,6 +32,8 @@ private val LightColorScheme = lightColorScheme(
     onSecondary = Void,
     onTertiary = FenceGreen, // usado para la mayoría de los textos
     surfaceBright = OceanBlue,
+    inverseSurface = Cyprus,
+    onSurface = CaribbeanGreen,
     secondary = FenceGreen,
     tertiary = Honeydew,
     onPrimaryFixed = LightGreen,

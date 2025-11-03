@@ -26,10 +26,8 @@ fun NavigationMenuButton(
     selected: Boolean,
     onClick: () -> Unit
 ) {
-    val backgroundColor = if (selected) CaribbeanGreen else MaterialTheme.colorScheme.surface
+    val backgroundColor = if (selected) CaribbeanGreen else MaterialTheme.colorScheme.onPrimaryFixed
     val iconTint = if (selected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSecondary
-
-
 
     Box(
         modifier = Modifier
