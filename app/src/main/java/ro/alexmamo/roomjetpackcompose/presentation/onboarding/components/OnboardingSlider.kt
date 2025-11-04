@@ -39,7 +39,7 @@ fun OnboardingSlider(
     val coroutineScope = rememberCoroutineScope()
     var currentPage by remember { mutableStateOf(0) }
     val finishJob = remember { mutableStateOf<Job?>(null) }
-    val autoFinishDelay = 1500L // ms
+    val autoFinishDelay = 2500L // ms
 
     LaunchedEffect(listState) {
         var lastIndex = listState.firstVisibleItemIndex
