@@ -20,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.Dimens
 import ro.alexmamo.roomjetpackcompose.ui.theme.Cyprus
-import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 
 @Composable
 fun NotificationItem(
@@ -85,8 +84,7 @@ fun NotificationItem(
                 Text(
                     text = stringResource(id = resId),
                     style = MaterialTheme.typography.bodySmall.copy(
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.SemiBold
+                        fontSize = 11.sp
                     ),
                     color = MaterialTheme.colorScheme.surfaceBright,
                     maxLines = 1,
@@ -98,7 +96,7 @@ fun NotificationItem(
             Text(
                 text = time,
                 style = MaterialTheme.typography.labelSmall,
-                color = OceanBlue,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.End
             )
