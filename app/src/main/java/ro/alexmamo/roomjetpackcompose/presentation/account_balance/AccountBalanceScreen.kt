@@ -5,7 +5,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
@@ -14,20 +13,14 @@ import ro.alexmamo.roomjetpackcompose.components.AppTopBar
 import ro.alexmamo.roomjetpackcompose.components.NotificationButton
 import ro.alexmamo.roomjetpackcompose.components.TransactionList
 import ro.alexmamo.roomjetpackcompose.components.OnBackNavigationButton
-import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 
 @Composable
 fun AccountBalanceScreen(
     navController: NavHostController,
-    walletViewModel: WalletViewModel = viewModel(),
     onNavigateBack: () -> Unit = {},
     onNavigateToNotifications: () -> Unit = {}
 ) {
-    LaunchedEffect(Unit) {
-        walletViewModel.get()
-    }
-
     BaseScreen(
         topBar = {
             AppTopBar (
@@ -61,7 +54,6 @@ fun AccountBalanceScreen(
                     title = stringResource(R.string.transactions),
                     showSeeAll = true,
                     showSummaryCard = false,
-                    walletViewModel = walletViewModel,
                     topPadding = 0.dp
                 )
             }

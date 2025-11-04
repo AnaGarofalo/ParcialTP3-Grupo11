@@ -6,17 +6,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import ro.alexmamo.roomjetpackcompose.presentation.account_balance.AccountBalanceScreen
 import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserScreen
-import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.forgot_password.ForgotPasswordScreen
 import ro.alexmamo.roomjetpackcompose.presentation.home.HomeScreen
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.login.LoginScreen
-import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.new_password.NewPasswordScreen
 import ro.alexmamo.roomjetpackcompose.presentation.password_changed.PasswordChangedScreen
 import ro.alexmamo.roomjetpackcompose.presentation.notification.NotificationScreen
 import ro.alexmamo.roomjetpackcompose.presentation.profile.ProfileScreen
-import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.security_pin.SecurityPinScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchAScreen
 import ro.alexmamo.roomjetpackcompose.presentation.launch.LaunchBScreen
@@ -32,12 +29,6 @@ fun NavGraph(
         navController = navController,
         startDestination = LaunchAScreen
     ) {
-
-        val loginViewModel = LoginViewModel()
-        val userViewModel = UserViewModel()
-        val createUserViewModel = CreateUserViewModel()
-        val walletViewModel = WalletViewModel()
-
         // Launch A: Launch screen
         composable<LaunchAScreen> {
             LaunchAScreen(onFinished = { navController.navigate(LaunchBScreen) })
@@ -58,10 +49,10 @@ fun NavGraph(
         }
 
         composable<ProfileScreen> { // Profile
-            ProfileScreen(navController = navController, viewModel = userViewModel)
+            ProfileScreen(navController = navController)
         }
         composable<HomeScreen> { // Homepage
-            HomeScreen(navController = navController, walletViewModel = walletViewModel, onNavigateToNotifications = {
+            HomeScreen(navController = navController, onNavigateToNotifications = {
                 navController.navigate(NotificationScreen)
             })
         }
@@ -71,13 +62,13 @@ fun NavGraph(
         }
 
         composable<LoginScreen> { // Login
-            LoginScreen(loginViewModel, navController)
+            LoginScreen(navController)
         }
         composable<ForgotPasswordScreen> { // Forgot Password
             ForgotPasswordScreen(navController)
         }
         composable<CreateUserScreen> { // Sign up
-            CreateUserScreen(createUserViewModel, navController)
+            CreateUserScreen(navController)
         }
         composable<SecurityPinScreen> { // Enter Security Pin
             SecurityPinScreen(navController)

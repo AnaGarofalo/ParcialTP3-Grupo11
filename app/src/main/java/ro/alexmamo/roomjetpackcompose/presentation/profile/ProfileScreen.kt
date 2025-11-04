@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
@@ -18,14 +18,13 @@ import androidx.navigation.NavHostController
 @Composable
 fun ProfileScreen(
     navController: NavHostController,
-    viewModel: UserViewModel = viewModel()
 ) {
     BaseScreen(
         title = "",
         centerContent = true,
         content = {
             Text(stringResource(R.string.api_user))
-            ApiUserSection(viewModel)
+            ApiUserSection()
 
             Spacer(modifier = Modifier.height(32.dp))
 

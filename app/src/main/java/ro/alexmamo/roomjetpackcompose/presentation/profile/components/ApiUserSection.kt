@@ -7,12 +7,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.presentation.profile.UserViewModel
 
 @Composable
-fun ApiUserSection(viewModel: UserViewModel = viewModel()) {
+fun ApiUserSection(viewModel: UserViewModel = hiltViewModel()) {
     val uiState by viewModel.uiState.collectAsState()
 
     LaunchedEffect(Unit) {

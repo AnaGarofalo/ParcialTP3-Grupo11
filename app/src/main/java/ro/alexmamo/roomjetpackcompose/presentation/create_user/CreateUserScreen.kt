@@ -18,7 +18,6 @@ import ro.alexmamo.roomjetpackcompose.presentation.login.components.LoginForm
 
 @Composable
 fun CreateUserScreen(
-    viewModel: CreateUserViewModel = viewModel(),
     navController: NavHostController,
 ) {
     BaseScreen(
@@ -27,7 +26,6 @@ fun CreateUserScreen(
         content = {
             CreateUserForm(
                 navController,
-                viewModel
             )
         }
     )

@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.input.rememberTextFieldState
-import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.AlternativeSignUpMethods
@@ -23,12 +21,10 @@ import ro.alexmamo.roomjetpackcompose.components.ButtonGreenType
 import ro.alexmamo.roomjetpackcompose.components.ButtonsGreen
 import ro.alexmamo.roomjetpackcompose.navigation.CreateUserScreen
 import ro.alexmamo.roomjetpackcompose.navigation.ForgotPasswordScreen
-import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 
 @Composable
 fun LoginForm(
-    navController: NavHostController,
-    viewModel: LoginViewModel = viewModel(),
+    navController: NavHostController
 ) {
     val email = rememberTextFieldState(initialText = "")
     val password = rememberTextFieldState(initialText = "")
@@ -57,7 +53,6 @@ fun LoginForm(
     ) {
         LogInButton(
             navController,
-            viewModel,
             email.text as String,
             password.text as String
         )

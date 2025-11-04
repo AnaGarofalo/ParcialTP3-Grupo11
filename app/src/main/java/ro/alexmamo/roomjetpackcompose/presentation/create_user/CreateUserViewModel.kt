@@ -2,16 +2,17 @@ package ro.alexmamo.roomjetpackcompose.presentation.create_user
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ro.alexmamo.roomjetpackcompose.infraestructure.auth.Auth
-import ro.alexmamo.roomjetpackcompose.infraestructure.auth.AuthImpl
 import ro.alexmamo.roomjetpackcompose.infraestructure.auth.CreateUserRequest
 import ro.alexmamo.roomjetpackcompose.infraestructure.user.User
+import javax.inject.Inject
 
-
-class CreateUserViewModel(private val auth: Auth = AuthImpl()) : ViewModel() {
+@HiltViewModel
+class CreateUserViewModel @Inject constructor(private val auth: Auth) : ViewModel() {
 
     sealed class UiState {
         object Idle : UiState()
