@@ -20,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
 import ro.alexmamo.roomjetpackcompose.ui.theme.Dimens
 import ro.alexmamo.roomjetpackcompose.ui.theme.Cyprus
-import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 
 @Composable
 fun NotificationItem(
