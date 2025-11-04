@@ -19,13 +19,8 @@ import androidx.compose.ui.Modifier
 @Composable
 fun HomeScreen(
     navController: NavHostController,
-    walletViewModel: WalletViewModel = viewModel(),
     onNavigateToNotifications: () -> Unit = {}
 ) {
-    LaunchedEffect(Unit) {
-        walletViewModel.get()
-    }
-
     BaseScreen(
         bottomBar = { BottomNavigationBar(navController = navController) },
         header = {
@@ -54,7 +49,6 @@ fun HomeScreen(
                         "Weekly",
                         "Monthly"
                     ),
-                    walletViewModel = walletViewModel,
                     topPadding = 0.dp
                 )
             }

@@ -1,11 +1,14 @@
 package ro.alexmamo.roomjetpackcompose.presentation.notification
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import ro.alexmamo.roomjetpackcompose.R
+import javax.inject.Inject
 
-class NotificationViewModel : ViewModel() {
+@HiltViewModel
+class NotificationViewModel @Inject constructor() : ViewModel() {
 
     data class Item(
         val iconRes: Int,

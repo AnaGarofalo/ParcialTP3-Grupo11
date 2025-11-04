@@ -11,7 +11,6 @@ import ro.alexmamo.roomjetpackcompose.presentation.login.components.LoginForm
 
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel = viewModel(),
     navController: NavHostController
 ) {
     BaseScreen(
@@ -19,8 +18,7 @@ fun LoginScreen(
         header = { LoginTitle(text = stringResource(R.string.welcome)) },
         content = {
             LoginForm(
-                navController,
-                viewModel
+                navController
             )
         }
     )

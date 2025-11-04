@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel.UiState
@@ -30,8 +30,12 @@ fun TransactionList(
     periodOptions: List<String> = emptyList(), // textos personalizables para menuSwitch
     topPadding: Dp = 24.dp,
     topBar: (@Composable () -> Unit)? = null,
-    walletViewModel: WalletViewModel = viewModel()
+    walletViewModel: WalletViewModel = hiltViewModel()
 ) {
+    LaunchedEffect(Unit) {
+        walletViewModel.get()
+    }
+
     val uiState = walletViewModel.uiState.collectAsState().value
     var selectedPeriod by remember { mutableStateOf(0) }
 

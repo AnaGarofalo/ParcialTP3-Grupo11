@@ -8,7 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BaseAlertDialog
@@ -19,9 +19,9 @@ import ro.alexmamo.roomjetpackcompose.presentation.login.LoginViewModel
 @Composable
 fun LogInButton(
     navController: NavHostController,
-    viewModel: LoginViewModel = viewModel(),
     email: String,
-    password: String
+    password: String,
+    viewModel: LoginViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsState()
     var errorMessage by remember { mutableStateOf("") }

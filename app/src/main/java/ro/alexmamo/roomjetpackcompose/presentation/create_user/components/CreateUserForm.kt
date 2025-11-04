@@ -7,16 +7,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.BaseInput
-import ro.alexmamo.roomjetpackcompose.presentation.create_user.CreateUserViewModel
 
 @Composable
 fun CreateUserForm(
     navController: NavHostController,
-    viewModel: CreateUserViewModel = viewModel(),
 ) {
     val email = rememberTextFieldState(initialText = "")
     val password = rememberTextFieldState(initialText = "")
@@ -58,7 +55,7 @@ fun CreateUserForm(
             isPassword = true
         )
 
-        SignUpButton(navController, viewModel, email.text as String, password.text as String, username.text as String)
+        SignUpButton(navController, email.text as String, password.text as String, username.text as String)
 
         SignInMessage(navController)
     }

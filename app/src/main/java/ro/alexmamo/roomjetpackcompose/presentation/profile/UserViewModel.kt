@@ -2,16 +2,18 @@ package ro.alexmamo.roomjetpackcompose.presentation.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 import ro.alexmamo.roomjetpackcompose.infraestructure.user.User
 import ro.alexmamo.roomjetpackcompose.infraestructure.user.Users
-import ro.alexmamo.roomjetpackcompose.infraestructure.user.UsersImpl
+import javax.inject.Inject
 
-class UserViewModel(
-    private val users: Users = UsersImpl()
+@HiltViewModel
+class UserViewModel @Inject constructor(
+    private val users: Users
 ) : ViewModel() {
 
     sealed class UiState {

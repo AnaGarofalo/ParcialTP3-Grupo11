@@ -2,14 +2,16 @@ package ro.alexmamo.roomjetpackcompose.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ro.alexmamo.roomjetpackcompose.infraestructure.wallet.Wallet
-import ro.alexmamo.roomjetpackcompose.infraestructure.wallet.WalletImpl
 import ro.alexmamo.roomjetpackcompose.infraestructure.wallet.WalletInterface
+import javax.inject.Inject
 
-class WalletViewModel(private val walletInterface:  WalletInterface = WalletImpl()) : ViewModel() {
+@HiltViewModel
+class WalletViewModel  @Inject constructor(private val walletInterface:  WalletInterface) : ViewModel() {
 
     sealed class UiState {
         object Idle : UiState()
