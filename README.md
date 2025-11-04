@@ -1,169 +1,95 @@
-# RoomJetpackCompose
-It's an app built with [Kotlin][1] that shows how to perform CRUD operations in the Room database using Kotlin Flow in clean architecture using [Android Architecture Components][3] and the MVVM Architecture Pattern. For the UI it uses Jetpack Compose, Android's modern toolkit for building native UI.
+# PARCIAL TP3
 
-![alt text](https://i.ibb.co/7X7bvbr/App.png)
+## Integrantes
 
-Below you can find the docs for each tehnology that is used in this app:
+- Acosta, Luis
+- Benito, Christian
+- Garófalo, Ana
+- Hochman, Lucas
 
-## Firebase Products:
-* [Firebase Authentication](https://firebase.google.com/docs/auth)
+## Implementación
 
-## Android Architecture Components:
-* [ViewModel][5]
-* [Navigation][12]
+- Pantallas Requeridas
+- Retrofit (4 rutas requeridas, se puede ver la respuesta de transactions en la pantalla home y la de user/{id} en una pantalla provisoria que reemplaza a la pantalla optativa Profile)
+- Room (modelo User, se crea al completar el Sign Up, se muestra en una pantalla provisoria que reemplaza a la pantalla optativa Profile, los métodos de update y delete están creados pero no implementados)
 
-## Dependency Injection:
-* [Hilt for Android][6]
-
-## Asynchronous Programming:
-* [Kotlin Coroutines][7]
-* [Asynchronous Flow][8]
-
-## Other Android Components:
-* [Jetpack Compose][9]
-* [Room][13]
+**Extras:** inyección de depndencias, modo oscuro, pantalla de Categorías
 
 ---
 
-This repo represents the code for following article writen on the Medium publication:
+## 1. ¿Qué tipo de arquitectura usaron y por qué? ¿Podría mejorarla?
 
-* [How to read data from Room using Kotlin Flow in Jetpack Compose?][10]
+Arquitectura Utilizada: La aplicación utiliza una combinación de Clean Architecture (Arquitectura Limpia) y el patrón MVVM (Model-View-ViewModel).
 
-See it also on youtube:
+**Clean Architecture:** Separación de responsabilidades en diferentes capas. Aunque la estructura de paquetes no es estrictamente data, domain, presentation, los componentes sí lo son:
 
-* https://youtu.be/BIMSsgyGBKE
+- **Domain:** Define las interfaces de lógica de negocio, como UserRepository.kt, que es un contrato abstracto.
+- **Data:** Contiene las implementaciones concretas, como UserRepositoryImpl.kt (que depende de UserDao) y las clases de infraestructura de red (AuthImpl, SafeApiCall).
+- **Presentation:** Incluye los componentes de UI (Jetpack Compose, como LoginScreen.kt) y los ViewModels (LoginViewModel.kt) que conectan la lógica con la UI.
 
-**License**
----
-The code in this project is licensed under the Apache License 2.0.
+**MVVM:** Se utiliza para la capa de presentación.
 
-    Copyright 2018 Google LLC
+- **View:** Son los @Composable de Jetpack Compose (ej. LoginScreen).
+- **ViewModel:** Clases como LoginViewModel, WalletViewModel y UserViewModel que exponen el estado (UiState) a la UI mediante StateFlow y manejan la lógica de la pantalla.
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-    https://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
-**Disclaimer**
----
-* This is not an officially supported Google product.
-
-[1]: https://kotlinlang.org/
-[2]: https://firebase.google.com/docs/auth
-[3]: https://developer.android.com/topic/libraries/architecture
-[5]: https://developer.android.com/topic/libraries/architecture/viewmodel
-[6]: https://developer.android.com/training/dependency-injection/hilt-android
-[7]: https://kotlinlang.org/docs/coroutines-overview.html
-[8]: https://kotlinlang.org/docs/flow.html
-[9]: https://developer.android.com/jetpack/compose
-[10]: https://medium.com/firebase-tips-tricks/how-to-read-data-from-room-using-kotlin-flow-in-jetpack-compose-7a720dec35f5
-[12]: https://developer.android.com/guide/navigation
-[13]: https://developer.android.com/training/data-storage/room
+**¿Por qué esta arquitectura?** Clean Architecture promueve la separación de responsabilidades, haciendo que el código sea más mantenible, escalable e independiente de frameworks (la lógica de dominio no sabe nada de Room o Retrofit). MVVM es el patrón recomendado por Google para la UI, ya que desacopla la lógica de la UI y maneja el estado de forma eficiente, especialmente con Jetpack Compose.
 
 ---
 
-## Guía rápida: uso de `BaseScreen`
+## 2. ¿Tuvieron objetos stateful y stateless? ¿Cómo definen la elección de los mismos?
 
-`BaseScreen` centraliza el layout de pantallas en Compose y expone slots para que agregues tus propios componentes sin repetir estructura.
+Sí, en Jetpack Compose esta distinción es fundamental y la aplicación los utiliza.
 
-- Props principales:
-  - `title: String?` – título simple para el TopBar (si no pasás `topBar`).
-  - `topBar: @Composable (() -> Unit)?` – TopBar custom (usa `AppTopBar` o el que quieras).
-  - `header: @Composable (() -> Unit)?` – Cabecera opcional sobre el contenido (chips, filtros, etc.).
-  - `content: @Composable (PaddingValues) -> Unit` – Contenido principal. Recibe el padding superior ya calculado.
-  - `bottomBar: @Composable (() -> Unit)?` – Barra inferior (por ejemplo `BottomNavigationBar`).
-  - `fab: @Composable (() -> Unit)?` – Floating Action Button opcional.
-  - `centerContent: Boolean` – Centra vertical y horizontalmente el contenido cuando es `true`.
+**Stateless (Sin Estado):** Son composables "tontos" que no gestionan su propio estado. Simplemente renderizan la información que reciben como parámetros y notifican eventos a través de lambdas.
 
-- Estilos y comportamiento incorporados:
-  - Respeta el área segura de status bar para evitar solapes con la cámara/recortes.
-  - Pinta el fondo con `MaterialTheme.colorScheme.surface` dentro de un contenedor con bordes superiores curvos.
-  - Mantiene paddings y radios desde `ui.theme.Dimens`.
+Ejemplo: El componente BaseScreen es un claro ejemplo de un componente stateless. Expone "slots" (topBar, content, fab) pero no sabe ni le importa qué contiene ese content. Su apariencia depende únicamente de los parámetros que se le pasan.
 
-- Ejemplo mínimo:
+**Stateful (Con Estado):** Son composables que crean, retienen o gestionan su propio estado (usando remember, rememberSavable, o recolectando un StateFlow).
 
-```kotlin
-@Composable
-fun ExampleScreen() {
-    BaseScreen(
-        title = "Example",
-        bottomBar = { BottomNavigationBar() },
-    ) { _ ->
-        // Tu contenido
-        Column(Modifier.fillMaxSize().padding(Dimens.paddingLarge)) {
-            Text("Hola BaseScreen")
-        }
-    }
-}
-```
+Ejemplo: LoginScreen.kt es stateful porque obtiene y se suscribe al LoginViewModel (viewModel: LoginViewModel = viewModel()). Este ViewModel mantiene el estado de la pantalla (ej. uiState).
 
-- Ejemplo con TopBar custom + Header + FAB:
+Para los objetos que sirven de base para evitar repetir código (BaseScreen, BaseInput) o aquellos que sólo renderizan contenido (IncomeExpenseCard) utilizamos componentes stateles. Para aquellos que tienen estados variables (los formularios de Login, Create Account) o varían de estado porque reciben información de fuentes externas (api, base de datos) usamos stateful
 
-```kotlin
-@Composable
-fun WithHeaderAndFab() {
-    BaseScreen(
-        topBar = { AppTopBar(title = "Dashboard") },
-        header = {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilterChip(label = "All")
-                FilterChip(label = "Income")
-                FilterChip(label = "Expense")
-            }
-        },
-        fab = { AddActionFab(onClick = { /* do something */ }) },
-        bottomBar = { BottomNavigationBar() }
-    ) { innerPadding ->
-        LazyColumn(contentPadding = innerPadding) {
-            items(100) { index -> Text("Item #$index") }
-        }
-    }
-}
-```
+---
 
-### Ejemplo centrado (empty state)
+## 3. ¿Qué mejoras detectan que podrían realizarle a la app? Comenten al menos 2 cuestiones a refactorizar.
 
-```kotlin
-@Composable
-fun EmptyState() {
-    BaseScreen(title = "No Data", centerContent = true) { _ ->
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Icon(Icons.Default.Info, contentDescription = null)
-            Spacer(Modifier.height(8.dp))
-            Text("Todavía no hay elementos")
-        }
-    }
-}
-```
+**Manejo de estados:** aunque tenemos un componente safeApiCall que maneja las excepciones a las requests de la api, en los componentes sólo solemos usar el UiState en caso successfull y a veces error o loading, pero no lo manejamos de manera consistente en toda la aplicación
 
-### Ejemplo con lista seccionada (como Notification)
+**Uso de Casos de Uso (Use Cases):** En Clean Architecture, la capa domain suele contener "Casos de Uso" (o "Interactors") que encapsulan una única regla de negocio. Actualmente, el LoginViewModel llama directamente al repositorio (auth.login(...)). Se podría crear una clase en el dominio llamada LoginUseCase (por ejemplo). El ViewModel llamaría a loginUseCase.invoke(username, password). Este Caso de Uso contendría la lógica de llamar al auth.login, validar los campos (si no se hace ya en la UI), y manejar la lógica de negocio específica del login. Esto hace que el ViewModel sea aún más ligero y que las reglas de negocio sean más fáciles de probar de forma aislada.
 
-```kotlin
-@Composable
-fun SectionList(sections: List<Section>) {
-    BaseScreen(title = "Sectioned") { _ ->
-        LazyColumn(
-            modifier = Modifier.fillMaxSize().padding(Dimens.paddingMedium),
-            verticalArrangement = Arrangement.spacedBy(Dimens.paddingMedium),
-            contentPadding = PaddingValues(bottom = Dimens.paddingLarge)
-        ) {
-            sections.forEach { section ->
-                item(section.title) { Text(section.title) }
-                items(section.items) { item -> ItemRow(item) }
-            }
-        }
-    }
-}
-```
+---
 
-- Recomendaciones:
-  - Cuando uses `LazyColumn`, pasá `contentPadding = PaddingValues(bottom = Dimens.paddingLarge)` si tenés navbar para evitar que el último ítem quede tapado.
-  - Si ves que el título se corta por la cámara/notch, el `BaseScreen` ya aplica `statusBarsPadding()` al TopBar.
-  - Para pantallas centradas (empty states, loaders): `centerContent = true`.
+## 4. ¿Qué manejo de errores harían? ¿dónde los contemplan a nivel código? Mencionen la estrategia de mapeo que más se adecúe.
+
+**Manejo de Errores Actual:** El manejo de errores se contempla en tres niveles:
+
+**Nivel de Infraestructura (Red):** Usamos un wrapper suspend fun safeApiCall(...). Este helper envuelve la llamada de Retrofit en un try-catch para capturar Exceptions (ej. SocketTimeoutException) y también comprueba response.isSuccessful para errores HTTP (ej. 4xx, 5xx).
+
+**Estrategia de Mapeo:** Los resultados de safeApiCall se mapean a una Sealed Class llamada ApiResult, que puede ser ApiResult.Success(data), ApiResult.Error(code, message) o ApiResult.Exception(exception).
+
+**Nivel de ViewModel:** Los ViewModels (ej. LoginViewModel, WalletViewModel) tienen su propia Sealed Class de UiState que incluye un estado de Error (ej. data class Error(val message: String)). Cuando detectan un fallo (actualmente solo un null de la capa inferior), emiten este estado de error. La UI (Compose) observaría este estado y mostraría un AlertDialog o un Snackbar.
+
+**Manejo de Errores Sugerido (Mejora):** El ApiResult detallado de la infraestructura no llega al ViewModel.
+
+La estrategia de mapeo ideal sería: safeApiCall -> ApiResult<T> -> Repositorio -> Result<Model> -> ViewModel -> UiState.Error(String)
+
+El ViewModel recibiría el Result (que podría contener el código de error o el mensaje de excepción) y sería responsable de mapear ese error técnico a un mensaje legible por el usuario. Por ejemplo, un HttpException 404 se mapearía a "Usuario o contraseña incorrectos", mientras que un SocketTimeoutException se mapearía a "No se pudo conectar al servidor, revisa tu conexión".
+
+---
+
+## 5. Si la tendríamos que convertir a Español y conservar el Inglés, qué estrategia utilizaría para extenderla.
+
+La aplicación está preparada para adaptarse a distintos idiomas porque usa String Resources.
+
+**Inglés (Default):** Todos los textos en inglés se mantienen en el archivo app/src/main/res/values/strings.xml. Por ejemplo, en LoginScreen.kt se usa stringResource(R.string.welcome).
+
+**Español (Localización):** Para agregar el español, se crea un nuevo directorio de recursos: app/src/main/res/values-es/. Dentro de ese directorio, se crea un nuevo archivo strings.xml. En este nuevo archivo, se definen las mismas claves pero con los valores traducidos al español.
+
+El sistema operativo Android se encarga automáticamente de seleccionar el archivo de recursos correcto (el de values-es si el dispositivo está en español, o el de values por defecto si está en inglés o cualquier otro idioma no definido). El código de la aplicación (stringResource(R.string.welcome)) no necesita ningún cambio.
+
+---
+
+## 6. Y si necesitamos agregar otros idiomas?
+
+La estrategia es exactamente la misma, simplemente se escala. Se añade un nuevo directorio values-<código_idioma> por cada idioma adicional requerido, utilizando los códigos ISO 639-1.
