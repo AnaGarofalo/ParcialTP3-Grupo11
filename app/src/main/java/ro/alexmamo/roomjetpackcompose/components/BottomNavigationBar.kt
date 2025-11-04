@@ -59,13 +59,7 @@ fun BottomNavigationBar(navController: NavController) {
                     onClick = {
                         val destination = destinations[index]
                         if (destination != null) {
-                            navController.navigate(destination) {
-                                launchSingleTop = true
-                                restoreState = true
-                                popUpTo(navController.graph.startDestinationId) {
-                                    saveState = true
-                                }
-                            }
+                            navController.navigate(destination)
                         }
                     }
                 )
