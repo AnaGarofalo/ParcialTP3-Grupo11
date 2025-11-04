@@ -1,16 +1,15 @@
-package ro.alexmamo.roomjetpackcompose.components
+package ro.alexmamo.roomjetpackcompose.components.walletcard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
 import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 import ro.alexmamo.roomjetpackcompose.ui.theme.Void
-
 
 @Composable
 // Esto es la parte que tiene el revenue y el food last week
@@ -33,7 +32,7 @@ fun FinanceInfoColumn(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(2.dp)
-                .background(MaterialTheme.colorScheme.tertiary)
+                .background(Honeydew)
         )
 
         Spacer(modifier = Modifier.height(8.dp))

@@ -80,21 +80,28 @@ fun NavGraph(
             PasswordChangedScreen(navController)
         }
         composable<AccountBalanceScreen> {
-            AccountBalanceScreen(navController, onNavigateBack = navController::navigateUp,
+            AccountBalanceScreen(
+                navController, onNavigateBack = navController::navigateUp,
                 onNavigateToNotifications = {
                     navController.navigate(NotificationScreen)
                 }
             )
         }
         composable<TransactionScreen> {
-            TransactionScreen(navController, onNavigateBack = navController::navigateUp,
+            TransactionScreen(
+                navController, onNavigateBack = navController::navigateUp,
                 onNavigateToNotifications = {
                     navController.navigate(NotificationScreen)
                 }
             )
         }
         composable<CategoriesScreen> {
-            CategoriesScreen(navController)
+            CategoriesScreen(
+                navController, onNavigateBack = navController::navigateUp,
+                onNavigateToNotifications = {
+                    navController.navigate(NotificationScreen)
+                }
+            )
         }
     }
 }
