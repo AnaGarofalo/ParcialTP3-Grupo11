@@ -97,7 +97,7 @@ fun NotificationItem(
             Text(
                 text = time,
                 style = MaterialTheme.typography.labelSmall,
-                color = OceanBlue,
+                color = MaterialTheme.colorScheme.onTertiaryContainer,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.End
             )
