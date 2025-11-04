@@ -2,7 +2,7 @@
     <!--App-->
     <string name="app_name">RoomJetpackCompose</string>
     <string name="finwise">FinWise</string>
-    <string name="lorem_ipsum">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. "</string>
+    <string name="lorem_ipsum">"Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed do eiusmod. "</string>
     <string name="db_name">todos_db</string>
     <!--Screen Names-->
     <string name="todo_list_screen_name">"Todo List"</string>
@@ -30,7 +30,9 @@
     <string name="notif_reminder_message">Set up your automatic savings to meet your savings goal...</string>
     <string name="notif_new_update_title">New Update</string>
     <string name="notif_transactions_title">Transactions</string>
-    <string name="notif_transactions_message">A new transaction has been registered\nGroceries | Pantry | -$100,00</string>
+    <string name="notif_transactions_message">A new transaction has been registered</string>
+    <string name="notif_budget_message">Groceries | pantry | -$100,00</string>
+    <string name="notif_budget_message2">Food |  Dinner  |  -$70,40</string>
     <string name="notif_expense_title">Expense record</string>
     <string name="notif_expense_message">We recommend that you be more attentive to your finances.</string>
     <string name="notification_time_example">17:00 - April 24</string>
@@ -97,7 +99,7 @@
     <string name="october">October</string>
     <string name="reset_password">Reset password?</string>
     <string name="lorem_ipsum_dolor">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</string>
-    <string name="enter_email_address">Enter email address</string>
+    <string name="enter_email_address">Enter Email Address</string>
     <string name="next_step">Next Step</string>
     <string name="security_pin">Security Pin</string>
     <string name="enter_security_pin">Enter Security Pin</string>

@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     background = FenceGreen,
+    onBackground = FenceGreen,
     surface = Cyprus,
     onPrimary = Void,
     onSecondary = Honeydew,
@@ -19,27 +20,34 @@ private val DarkColorScheme = darkColorScheme(
     inverseSurface = Honeydew,
     onSurface = Honeydew,
     surfaceBright = CaribbeanGreen,
+    inverseOnSurface = CaribbeanGreen,
     secondary = Honeydew,
     tertiary = DarkGreen,
     onPrimaryFixed = Cyprus,
+    outline = LightGreen,
+    tertiaryContainer = OceanBlue,
     onSurfaceVariant = VividBlue,
-    onPrimaryFixedVariant = Void
+    tertiaryFixed = CaribbeanGreen,
 )
 
 private val LightColorScheme = lightColorScheme(
     background = CaribbeanGreen,
+    onBackground = Honeydew,
     surface = Honeydew,
     onPrimary = Void,
     onSecondary = Void,
     onTertiary = FenceGreen, // usado para la mayoría de los textos
     surfaceBright = OceanBlue,
+    inverseOnSurface = VividBlue,
     inverseSurface = Cyprus,
     onSurface = CaribbeanGreen,
     secondary = FenceGreen,
     tertiary = Honeydew,
     onPrimaryFixed = LightGreen,
+    outline = CaribbeanGreen,
+    tertiaryContainer = LightGreen,
     onSurfaceVariant = OceanBlue,
-    onPrimaryFixedVariant = OceanBlue
+    tertiaryFixed = Cyprus,
     /* Other default colors to override
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,

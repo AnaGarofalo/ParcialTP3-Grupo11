@@ -41,12 +41,11 @@ fun StepCircle(state: StepState) {
 
     Box(
         modifier = Modifier
-            .size(100.dp)
+            .size(150.dp)
             .graphicsLayer(
                 scaleX = scale,
                 scaleY = scale
             )
-            .border(7.dp, Color(0xFFCCF6E3), CircleShape)
             .padding(4.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -57,26 +56,10 @@ fun StepCircle(state: StepState) {
             }
         ) { step ->
             when (step) {
-                StepState.ONE_DOT -> Icon(
-                    painter = painterResource(R.drawable.step_1),
-                    contentDescription = null,
-                    tint = LightGreen
-                )
-                StepState.TWO_DOTS -> Icon(
-                    painter = painterResource(R.drawable.step_2),
-                    contentDescription = null,
-                    tint = LightGreen
-                )
-                StepState.THREE_DOTS -> Icon(
-                    painter = painterResource(R.drawable.step_3),
-                    contentDescription = null,
-                    tint = LightGreen
-                )
-                StepState.CHECK -> Icon(
-                    painter = painterResource(R.drawable.step_success),
-                    contentDescription = null,
-                    tint = LightGreen
-                )
+                StepState.ONE_DOT -> StepCircleIcon(R.drawable.step_1)
+                StepState.TWO_DOTS -> StepCircleIcon(R.drawable.step_2)
+                StepState.THREE_DOTS -> StepCircleIcon(R.drawable.step_3)
+                StepState.CHECK -> StepCircleIcon(R.drawable.step_success)
             }
         }
     }
