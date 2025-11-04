@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 
 
@@ -42,7 +43,7 @@ fun FinanceInfoColumn(modifier: Modifier = Modifier) {
             title = stringResource(R.string.food_last_week),
             amount = stringResource(R.string._100_00),
             titleColor = Void,
-            amountColor = MaterialTheme.colorScheme.onPrimaryFixedVariant
+            amountColor = OceanBlue
         )
     }
 }
