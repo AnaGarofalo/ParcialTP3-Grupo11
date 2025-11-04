@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -30,7 +31,7 @@ fun AccountBalanceScreen(
 
     BaseScreen(
         topBar = {
-            AppTopBar (
+            AppTopBar(
                 title = stringResource(R.string.account_balance),
                 leftAction = {
                     OnBackNavigationButton(onNavigateBack)
@@ -54,7 +55,12 @@ fun AccountBalanceScreen(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues)
+                    .padding(
+                        top = 8.dp, // más arriba la lista
+                        start = paddingValues.calculateStartPadding(LayoutDirection.Ltr),
+                        end = paddingValues.calculateEndPadding(LayoutDirection.Ltr),
+                        bottom = 56.dp
+                    )
             ) {
                 // Lista de transacciones
                 TransactionList(

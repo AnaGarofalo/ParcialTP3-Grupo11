@@ -53,20 +53,13 @@ fun TransactionList(
                 selectedIndex = selectedPeriod,
                 onOptionSelected = { selectedPeriod = it }
             )
-            Spacer(modifier = Modifier.height(20.dp))
-        }
-
-        // header opcional
-        if (topBar != null) {
-            topBar()
-            Spacer(modifier = Modifier.height(24.dp))
         }
 
         // título + See all
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
                 text = title,
@@ -84,7 +77,8 @@ fun TransactionList(
             }
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(15.dp))
+
 
         // render según estado
         when (uiState) {
@@ -96,8 +90,12 @@ fun TransactionList(
             is UiState.Success -> {
                 val transactions = uiState.wallet.transactions
                 LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(16.dp),
-                    contentPadding = PaddingValues(bottom = 16.dp)
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                    contentPadding = PaddingValues(
+                        top = 0.dp,
+                        bottom = 30.dp
+                    )
                 ) {
                     items(transactions) { tx ->
                         TransactionItem(data = tx)

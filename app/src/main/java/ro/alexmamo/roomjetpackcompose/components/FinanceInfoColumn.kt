@@ -2,14 +2,12 @@ package ro.alexmamo.roomjetpackcompose.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ro.alexmamo.roomjetpackcompose.R
-import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
-import ro.alexmamo.roomjetpackcompose.ui.theme.OceanBlue
 import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 
 
@@ -34,7 +32,7 @@ fun FinanceInfoColumn(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(2.dp)
-                .background(Honeydew)
+                .background(MaterialTheme.colorScheme.tertiary)
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -44,7 +42,7 @@ fun FinanceInfoColumn(modifier: Modifier = Modifier) {
             title = stringResource(R.string.food_last_week),
             amount = stringResource(R.string._100_00),
             titleColor = Void,
-            amountColor = OceanBlue
+            amountColor = MaterialTheme.colorScheme.onPrimaryFixedVariant
         )
     }
 }

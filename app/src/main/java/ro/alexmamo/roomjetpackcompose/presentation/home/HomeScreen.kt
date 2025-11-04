@@ -37,14 +37,12 @@ fun HomeScreen(
             )
         },
         content = { paddingValues ->
-            Column (
+            Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
-                    .offset(y = (-20).dp) //
+                    .offset(y = (-50).dp) //
             ) {
-
-                Spacer(modifier = Modifier.height(24.dp))
 
                 TransactionList(
                     title = "", // Aca puede ir titulo o no
