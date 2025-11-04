@@ -1,17 +1,14 @@
 package ro.alexmamo.roomjetpackcompose.presentation.home
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
 import ro.alexmamo.roomjetpackcompose.components.HomeHeader
-import ro.alexmamo.roomjetpackcompose.components.TransactionList
+import ro.alexmamo.roomjetpackcompose.components.transaction.TransactionList
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier

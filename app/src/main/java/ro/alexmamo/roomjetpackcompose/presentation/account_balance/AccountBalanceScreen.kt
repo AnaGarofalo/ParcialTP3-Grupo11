@@ -12,7 +12,7 @@ import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
 import ro.alexmamo.roomjetpackcompose.components.AccountBalanceHeader
 import ro.alexmamo.roomjetpackcompose.components.AppTopBar
 import ro.alexmamo.roomjetpackcompose.components.NotificationButton
-import ro.alexmamo.roomjetpackcompose.components.TransactionList
+import ro.alexmamo.roomjetpackcompose.components.transaction.TransactionList
 import ro.alexmamo.roomjetpackcompose.components.OnBackNavigationButton
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 

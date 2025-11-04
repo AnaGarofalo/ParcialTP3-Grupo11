@@ -1,4 +1,4 @@
-package ro.alexmamo.roomjetpackcompose.components
+package ro.alexmamo.roomjetpackcompose.components.walletcard
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon

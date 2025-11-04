@@ -1,4 +1,4 @@
-package ro.alexmamo.roomjetpackcompose.components
+package ro.alexmamo.roomjetpackcompose.components.transaction
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,9 +17,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ro.alexmamo.roomjetpackcompose.R
+import ro.alexmamo.roomjetpackcompose.components.MenuSwitchOnOff
+import ro.alexmamo.roomjetpackcompose.components.walletcard.WalletSummaryCard
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel.UiState
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
+import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 
 @Composable
 fun TransactionList(
@@ -27,7 +30,7 @@ fun TransactionList(
     showSeeAll: Boolean,
     showSummaryCard: Boolean = false,
     showPeriodSwitch: Boolean = false,
-    periodOptions: List<String> = emptyList(), // textos personalizables para menuSwitch
+    periodOptions: List<String> = emptyList(),
     topPadding: Dp = 24.dp,
     topBar: (@Composable () -> Unit)? = null,
     walletViewModel: WalletViewModel = hiltViewModel()
@@ -37,7 +40,7 @@ fun TransactionList(
     }
 
     val uiState = walletViewModel.uiState.collectAsState().value
-    var selectedPeriod by remember { mutableStateOf(0) }
+    var selectedPeriod by remember { mutableStateOf(-1) }
 
     Column(
         modifier = Modifier
@@ -83,10 +86,9 @@ fun TransactionList(
 
         Spacer(modifier = Modifier.height(15.dp))
 
-
         // render según estado
         when (uiState) {
-            is UiState.Idle -> Text("No hay datos disponibles", color = Color.Gray)
+            is UiState.Idle -> Text(stringResource(R.string.no_hay_datos_disponibles), color = Void)
             is UiState.Loading -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator(color = CaribbeanGreen)
             }
