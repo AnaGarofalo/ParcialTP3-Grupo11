@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import ro.alexmamo.roomjetpackcompose.ui.theme.Void
 
 @Composable
@@ -39,7 +40,7 @@ fun FinanceRow(
             Text(
                 text = title,
                 color = titleColor,
-                style = MaterialTheme.typography.labelMedium,
+                style = MaterialTheme.typography.labelMedium.copy(fontSize = 15.sp),
                 fontWeight = FontWeight.Medium
             )
             Spacer(modifier = Modifier.height(2.dp))
@@ -47,7 +48,7 @@ fun FinanceRow(
                 text = amount,
                 color = amountColor,
                 fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge.copy(fontSize = 17.sp)
             )
         }
     }

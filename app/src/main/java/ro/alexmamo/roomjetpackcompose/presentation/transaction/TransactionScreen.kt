@@ -3,22 +3,20 @@ package ro.alexmamo.roomjetpackcompose.presentation.transaction
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import ro.alexmamo.roomjetpackcompose.R
 import ro.alexmamo.roomjetpackcompose.components.AppTopBar
 import ro.alexmamo.roomjetpackcompose.components.BottomNavigationBar
-import ro.alexmamo.roomjetpackcompose.components.HomeHeader
 import ro.alexmamo.roomjetpackcompose.components.NotificationButton
 import ro.alexmamo.roomjetpackcompose.components.OnBackNavigationButton
 import ro.alexmamo.roomjetpackcompose.components.TransactionList
 import ro.alexmamo.roomjetpackcompose.presentation.home.WalletViewModel
 import ro.alexmamo.roomjetpackcompose.presentation.layouts.BaseScreen
 import ro.alexmamo.roomjetpackcompose.presentation.transaction.components.TransactionHeader
-import ro.alexmamo.roomjetpackcompose.ui.theme.Honeydew
 
 @Composable
 fun TransactionScreen(
@@ -34,7 +32,7 @@ fun TransactionScreen(
 
     BaseScreen(
         topBar = {
-            AppTopBar (
+            AppTopBar(
                 title = stringResource(R.string.transactions),
                 leftAction = {
                     OnBackNavigationButton(onNavigateBack)
@@ -56,7 +54,12 @@ fun TransactionScreen(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddingValues)
+                    .padding(
+                        top = 8.dp,
+                        start = paddingValues.calculateStartPadding(LayoutDirection.Ltr),
+                        end = paddingValues.calculateEndPadding(LayoutDirection.Ltr),
+                        bottom = 56.dp
+                    )
             ) {
 
                 // Lista de transacciones (usa los datos del ViewModel)

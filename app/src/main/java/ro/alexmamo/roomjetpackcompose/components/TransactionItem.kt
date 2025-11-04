@@ -63,7 +63,7 @@ fun TransactionItem(data: Transaction) {
                     color = MaterialTheme.colorScheme.secondary,
                     fontWeight = FontWeight.Medium,
                     fontSize = 15.sp,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.labelMedium,
                     maxLines = 2, // muestra una sola línea
                     overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
                 )
@@ -108,7 +108,7 @@ fun TransactionItem(data: Transaction) {
         Box(
             modifier = Modifier
                 .weight(1f)
-                .padding(start = 8.dp),
+                .padding(start = 6.dp),
             contentAlignment = Alignment.CenterEnd
         ) {
             // esto es para formatear el numero con comas y eso
@@ -119,8 +119,7 @@ fun TransactionItem(data: Transaction) {
             Text(
                 text = formattedAmount,
                 color = color,
-                fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.labelMedium
             )
         }
     }
@@ -141,8 +140,8 @@ fun formatDateToMonthDay(dateString: String): String {
     return try {
         val date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
         val formatter = DateTimeFormatter.ofPattern("MMMM d", Locale.ENGLISH)
-        date.format(formatter) // → "October 15"
+        date.format(formatter)
     } catch (e: Exception) {
-        dateString // fallback si hay error
+        dateString
     }
 }

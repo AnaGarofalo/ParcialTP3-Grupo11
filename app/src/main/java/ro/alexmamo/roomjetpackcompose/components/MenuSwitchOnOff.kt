@@ -14,9 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import ro.alexmamo.roomjetpackcompose.ui.theme.CaribbeanGreen
 
 @Composable
@@ -52,8 +50,7 @@ fun MenuSwitchOnOff(
                 Text(
                     text = label,
                     color = textColor,
-                    fontSize = 15.sp,
-                    fontWeight = FontWeight.Bold
+                    style = MaterialTheme.typography.labelMedium
                 )
             }
         }
