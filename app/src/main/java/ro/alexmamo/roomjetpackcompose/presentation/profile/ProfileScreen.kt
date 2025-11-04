@@ -2,6 +2,7 @@ package ro.alexmamo.roomjetpackcompose.presentation.profile
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,13 +24,13 @@ fun ProfileScreen(
         title = "",
         centerContent = true,
         content = {
-            Text(stringResource(R.string.api_user))
+            Text(stringResource(R.string.api_user), color = MaterialTheme.colorScheme.onTertiary)
             ApiUserSection()
 
             Spacer(modifier = Modifier.height(32.dp))
 
 
-            Text(stringResource(R.string.db_users))
+            Text(stringResource(R.string.db_users), color = MaterialTheme.colorScheme.onTertiary)
             DBUserSection()
         },
         bottomBar = { BottomNavigationBar(navController) }

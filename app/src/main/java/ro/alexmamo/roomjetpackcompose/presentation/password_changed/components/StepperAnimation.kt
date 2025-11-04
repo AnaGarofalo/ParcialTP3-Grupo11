@@ -27,7 +27,6 @@ fun StepperAnimation() {
 
     Column(
         modifier = Modifier
-            .fillMaxHeight()
             .padding(vertical = 32.dp),
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally

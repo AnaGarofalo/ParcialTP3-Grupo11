@@ -1,6 +1,7 @@
 package ro.alexmamo.roomjetpackcompose.presentation.profile.components
 
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -21,22 +22,24 @@ fun ApiUserSection(viewModel: UserViewModel = hiltViewModel()) {
     }
 
     when (uiState) {
-        is UserViewModel.UiState.Idle -> {
-            Text("Esperando acción…")
-        }
+        is UserViewModel.UiState.Idle -> {}
         is UserViewModel.UiState.Loading -> {
             CircularProgressIndicator()
         }
         is UserViewModel.UiState.Success -> {
             val user = (uiState as UserViewModel.UiState.Success).user
-            Text(stringResource(R.string.usuario, user.name.firstname, user.name.lastname))
+            Text(
+                stringResource(R.string.usuario, user.name.firstname, user.name.lastname),
+                color = MaterialTheme.colorScheme.onTertiary
+            )
 
-            Text(stringResource(R.string.email, user.email))
-            Text(stringResource(R.string.ciudad, user.address.city))
+            Text(stringResource(R.string.email, user.email), color = MaterialTheme.colorScheme.onTertiary)
+            Text(stringResource(R.string.ciudad, user.address.city), color = MaterialTheme.colorScheme.onTertiary)
         }
         is UserViewModel.UiState.Error -> {
             Text(
                 stringResource(R.string.error, (uiState as UserViewModel.UiState.Error).message),
+                color = MaterialTheme.colorScheme.onTertiary
             )
         }
     }
