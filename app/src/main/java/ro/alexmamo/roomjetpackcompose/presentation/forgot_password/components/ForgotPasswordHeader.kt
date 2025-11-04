@@ -19,7 +19,7 @@ fun ForgotPasswordHeader() {
         Text(
             text = stringResource(R.string.reset_password),
             style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onTertiary
+            color = MaterialTheme.colorScheme.tertiaryFixed
         )
 
         Text(

@@ -62,7 +62,7 @@ fun AlternativeSignUpMethods(
             ClickableText(
                 text = AnnotatedString(stringResource(R.string.sign_up_caps)),
                 style = MaterialTheme.typography.labelSmall.copy(
-                    color = MaterialTheme.colorScheme.surfaceBright
+                    color = MaterialTheme.colorScheme.inverseOnSurface
                 ),
                 onClick = {
                     navController.navigate(CreateUserScreen)

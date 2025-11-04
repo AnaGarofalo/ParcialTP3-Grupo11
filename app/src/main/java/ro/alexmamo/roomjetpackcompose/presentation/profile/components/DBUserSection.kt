@@ -1,6 +1,7 @@
 package ro.alexmamo.roomjetpackcompose.presentation.profile.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -23,11 +24,11 @@ fun DBUserSection(viewModel: UserListViewModel = hiltViewModel()) {
         is Response.Loading -> LoadingIndicator()
         is Response.Success -> userListResponse.data.let { userList ->
             if (userList.isEmpty()) {
-                Text(stringResource(R.string.no_hay_usuarios_agregados))
+                Text(stringResource(R.string.no_hay_usuarios_agregados), color = MaterialTheme.colorScheme.onTertiary)
             } else {
                 Column {
                     userList.forEach { user ->
-                        Text(text = "👤 ${user.id} — ${user.username} — ${user.email}")
+                        Text(text = "👤 ${user.id} — ${user.username} — ${user.email}", color = MaterialTheme.colorScheme.onTertiary)
                     }
                 }
             }
