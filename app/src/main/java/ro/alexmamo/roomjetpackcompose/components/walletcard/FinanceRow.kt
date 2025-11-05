@@ -40,7 +40,7 @@ fun FinanceRow(
             Text(
                 text = title,
                 color = titleColor,
-                style = MaterialTheme.typography.labelMedium.copy(fontSize = 15.sp),
+                style = MaterialTheme.typography.labelMedium.copy(fontSize = 12.sp),
                 fontWeight = FontWeight.Medium
             )
             Spacer(modifier = Modifier.height(2.dp))

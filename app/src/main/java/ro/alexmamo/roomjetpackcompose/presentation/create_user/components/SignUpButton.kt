@@ -49,7 +49,7 @@ fun SignUpButton(
             val user = (uiState as CreateUserViewModel.UiState.Success).user
             LaunchedEffect(Unit) {
                navController.navigate(HomeScreen)
-                dbViewModel.insertUser(DBUser(0, email, password))
+                dbViewModel.insertUser(DBUser(0, username, email))
             }
         }
         is CreateUserViewModel.UiState.Error -> {

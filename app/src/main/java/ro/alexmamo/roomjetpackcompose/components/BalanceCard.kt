@@ -33,7 +33,7 @@ fun BalanceCard(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
-            .padding(20.dp)
+            .padding(top = 20.dp, start = 20.dp, end = 20.dp)
     ) {
         Column {
             // Balance y Expense con separador vertical
@@ -82,8 +82,6 @@ fun BalanceCard(
                     income = income,
                     expense = expense
                 )
-
-                Spacer(modifier = Modifier.height(16.dp))
             }
             Spacer(modifier = Modifier.height(8.dp))
 

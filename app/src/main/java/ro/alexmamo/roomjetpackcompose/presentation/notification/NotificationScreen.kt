@@ -18,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -88,7 +89,9 @@ fun NotificationScreen(navController: NavHostController,
                         val sectionTitle = stringResource(id = section.titleRes)
                         Text(
                             sectionTitle,
-                            style = MaterialTheme.typography.titleSmall,
+                            style = MaterialTheme.typography.titleSmall.copy(
+                                fontWeight = FontWeight.Normal
+                            ),
                             color = MaterialTheme.colorScheme.onSecondary
                         )
                     }

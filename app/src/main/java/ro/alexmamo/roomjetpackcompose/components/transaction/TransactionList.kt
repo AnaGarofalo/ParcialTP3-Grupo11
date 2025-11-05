@@ -40,7 +40,7 @@ fun TransactionList(
     }
 
     val uiState = walletViewModel.uiState.collectAsState().value
-    var selectedPeriod by remember { mutableStateOf(-1) }
+    var selectedPeriod by remember { mutableStateOf(2) }
 
     Column(
         modifier = Modifier

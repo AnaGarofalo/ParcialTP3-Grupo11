@@ -76,8 +76,7 @@ fun RowScope.TransactionItemCenterSection(data: Transaction) {
 fun RowScope.TransactionItemRightSection(data: Transaction) {
     Row(
         modifier = Modifier
-            .weight(1f)
-            .padding(start = 6.dp),
+            .weight(1f),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.End
     ) {

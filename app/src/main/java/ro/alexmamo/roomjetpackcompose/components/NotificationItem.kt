@@ -84,7 +84,8 @@ fun NotificationItem(
                 Text(
                     text = stringResource(id = resId),
                     style = MaterialTheme.typography.bodySmall.copy(
-                        fontSize = 11.sp
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.SemiBold
                     ),
                     color = MaterialTheme.colorScheme.surfaceBright,
                     maxLines = 1,

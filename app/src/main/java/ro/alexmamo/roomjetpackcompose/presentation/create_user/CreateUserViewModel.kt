@@ -27,7 +27,7 @@ class CreateUserViewModel @Inject constructor(private val auth: Auth) : ViewMode
     fun createUser(email: String, password: String, username: String) {
         viewModelScope.launch {
             _uiState.value = UiState.Loading
-            val user = auth.createUser(CreateUserRequest(email, password, username))
+            val user = auth.createUser(CreateUserRequest(email = email, password = password, username = username))
             if (user != null) {
                 _uiState.value = UiState.Success(user)
             } else {
